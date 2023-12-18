@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.containe {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .containe {
+    width: 780px;
+  }
+}
+@media (min-width: 1024px) {
+  .containe {
+    width: 994px;
+  }
+}
+@media (min-width: 1280px) {
+  .containe {
+    width: 1250px;
+  }
+}
+
+/* Add this CSS to your stylesheet */
+/* Add this CSS to your stylesheet */
+.product-card {
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-links {
+  position: absolute;
+  /* bottom: 10px; */
+  right: 7px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.product-links li {
+  margin: 4px 0; /* Adjust margin as needed */
+  transform: rotate(360deg) scale(0);
+  transition: all 0.3s ease 0s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container:hover .product-links li {
+  transform: rotate(0) scale(1);
+}
+
+.product-links li:nth-child(3) {
+  transition-delay: 0.1s;
+}
+
+.product-links li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.product-links li:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+.product-links li a {
+  color: #666;
+  background-color: #fff;
+  /* font-size: 3vw; Use percentage units for responsive sizing */
+  max-width: 40px; /* Limit the maximum size */
+  max-height: 40px; /* Limit the maximum size */
+  border-radius: 50%;
+  padding: 7px;
+  /* background-color-opacity: 0.4; */
+  text-align: center;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  transition: all 0.3s ease 0s;
+}
+
+.product-links li a:hover {
+  color: #fff;
+  background-color: #ed1d24;
+}
+
+.item_title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+/* Style the labels to look like buttons */
+/* label {
+  padding: 10px;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+} */
+
+/* Style the selected label */
+.filterFirst:has(input[type="radio"]:checked) {
+  background: rgb(244, 244, 245);
+}

@@ -5,8 +5,13 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://db.onlinewebfonts.com/c/f1fcc5aed1e20fc0cdb9f8a7573625bd?family=Integral+CF+Regular"
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,301,701,300,501,401,901,400&display=swap"
     rel="stylesheet">
+
+  <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick-theme.css">
+  <script src="https://kit.fontawesome.com/ea46097b21.js" crossorigin="anonymous"></script>
+
   <title>Vite App</title>
 </head>
 
@@ -87,39 +92,78 @@
 
   <!-- hero mainK -->
 
-  <section class="hero">
+  <section id="herosection" class="bg-[url('bg01.png')] w-full bg-cover bg-center bg-no-repeat">
     <div class="containe">
+      <div class="heroinner flex flex-row flex-wrap items-center">
 
-      <div class="herotext">
+        <div class="heroheading  md:basis-8/12">
+          <h1 class=" text-black font-extrabold my-3 leading-[0.9]  ">FIND
+            CLOTHES <br>THAT
+            MATCHES <br>YOUR STYLE</h1>
+
+          <p class="text-black text-opacity-60 text-[16px] font-normal font-['Satoshi'] max-w-[650px]">Browse
+            through our diverse range of meticulously crafted garments, designed to bring out your individuality
+            and
+            cater to your sense of style.</p>
+
+          <button class="herobtn w-full max-w-[340px] py-[13px] px-[60px] mt-7 mb-7 bg-black text-white rounded-[40px]">
+            Shop No
+          </button>
 
 
+          <div class="heronum flex flex-wrap justify-around md:justify-between max-w-[650px]">
+            <div class="numc text-3xl font-medium m-4">200+
+              <p class="text-black text-opacity-60 text-sm font-normal font-['Satoshi']">intermediate brand</p>
+            </div>
+            <div class="numc text-3xl font-medium m-4">30,000+
+              <p class="text-black text-opacity-60 text-sm font-normal font-['Satoshi']">Happy Customers</p>
+            </div>
+            <div class="numc text-3xl font-medium m-4">2,000+
+              <p class="text-black text-opacity-60 text-sm font-normal font-['Satoshi']">High-Quality Products</p>
+            </div>
 
-        <h1>FIND CLOTHES <br>THAT MATCHES <br>YOUR STYLE</h1>
-        <p>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality
-          and
-          cater to your sense of style.</p>
-
-        <button class="herobtn-shopnow">
-          Shop Now
-        </button>
-
-
-        <div class="heronum">
-          <div class="numc">200+
-            <span>intermediate brand</span>
           </div>
-          <div class="numc">2,000+
 
-            <span>High-Quality Products</span>
-          </div>
-          <div class="numc">30,000+ <span>Happy Customers</span></div>
         </div>
+        <div class="md:basis-4/12 mx-auto">
+          <img class="mx-auto" src="/heroimg01.gif" alt="">
+        </div>
+
       </div>
     </div>
+  </section>
+
+  <!-- -----------------------------------------Section new Arivals-------------------------------------- -->
+  <section id="newarival" class=" font-['Satoshi'] my-[75px]">
+    <div class="containe">
+      <h2 class="text-center text-black text-5xl font-extrabold uppercase my-10">New Arivals</h2>
+      <div class="newarivals_box">
+        <div class="hidden absolute"></div>
+      </div>
+  </section>
+
+  <!-- -----------------------------------------Section TOP sellings---------------------------------------->
+  <section id="topselling" class=" font-['Satoshi'] my-[75px]">
+    <div class="containe">
+      <h2 class="text-center text-black text-5xl font-extrabold uppercase my-10">top sellings</h2>
+      <div class="topsellings_box">
+        <div class="hidden absolute"></div>
+      </div>
     </div>
+
 
   </section>
 
+  <a href="/src/pages/Category.html">ddd</a>
+
+
+
+  <section class="detail page">
+
+  </section>
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/slick-carousel/slick/slick.min.js"></script>
   <script type="module" src="/main.js"></script>
 </body>
 

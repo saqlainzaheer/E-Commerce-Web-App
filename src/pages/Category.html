@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Website</title>
+    <link rel="stylesheet" href="../css/Category.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,301,701,300,501,401,901,400&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ea46097b21.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <section>
+        <div class="containe">
+            <img src="" alt="">
+
+            <div class="shopmain flex flex-wrap">
+
+                <div id="filters"
+                    class="rounded-2xl border border-black border-opacity-10 md:basis-3/12 basis-full text-blue min-h-[100vh]">
+                    <div class="p-4">
+
+
+                        <!-- filter head and icon -->
+                        <div class="flex justify-between items-center mb-4">
+
+                            <div class="text-black text-xl font-bold font-['Satoshi'] ">Filters</div>
+                            <button class="w-6 h-6 rotate-90"><i class="fa-solid fa-sliders "></i></button>
+                        </div>
+
+
+                        <hr>
+                        <!-- ClothType Filter -->
+                        <div class="my-4">
+                            <!-- Clothe-filter dropdownbtn -->
+                            <!-- <div class="text-black text-xl font-bold font-['Satoshi'] flex items-center justify-between"
+                                onclick="toggleFilter('clotheTypeFilter')">
+                                <span class="flex items-center">
+                                    Clothe Type
+                                </span>
+                                <i class="fa-solid fa-angle-right"></i>
+
+                            </div> -->
+
+                            <!-- render all Clothe type filters -->
+                            <div id="clotheTypeFilter" class="">
+
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- Size Filter -->
+                        <div class="my-4">
+                            <!-- Size-filter dropdownbtn -->
+                            <div class="text-black text-xl font-bold font-['Satoshi'] flex items-center justify-between"
+                                onclick="toggleFilter('sizeFilter')">
+                                <span class="flex items-center">
+                                    Size
+                                </span>
+                                <i class="fa-solid fa-angle-right"></i>
+                            </div>
+
+                            <!-- render all dress style filters in this div -->
+                            <div id="sizeFilter" class="hidden">
+
+                                <label id="sizeFilter" for="sizeFilter"
+                                    class=" filterFirst flex justify-between items-center p-2 my-1 rounded-md hover:bg-[#F0EEED] font-['Satoshi'] text-black text-opacity-60"
+                                    for="T-Shirts">
+                                    <input class="" type="radio" id="T-Shirts" name="filter">
+                                    <span class="text-base font-normal font-['Satoshi'] ">T-Shirts</span>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- endsizefilter -->
+
+                        <hr>
+
+                        <!-- Dress Style Filter -->
+                        <div class="my-4">
+                            <!-- dress-style-filter dropdownbtn -->
+                            <div role="button"
+                                class="text-black text-xl font-bold font-['Satoshi'] flex items-center justify-between"
+                                onclick="toggleFilter('dressStyleFilter')">
+                                <span class="flex items-center">
+                                    Dress Style
+                                </span>
+                                <i class="fa-solid fa-angle-right"></i>
+
+                            </div>
+
+                            <!-- render all dress style filters -->
+                            <div id="dressStyleFilter" class="hidden">
+
+                            </div>
+                        </div>
+                        <hr>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+                <div class="md:basis-9/12 basis-full w-full">
+                    <div class="flex flex-wrap justify-between items-center">
+
+                        <div class="p-4 text-black text-3xl font-bold font-['Satoshi']">Casual</div>
+                        <div class="p-4 text-black text-opacity-60 text-base font-normal font-['Satoshi']">Showing 1-30
+                            of 100 Products SortBy: <span class="font-bold">Mostpopular</span>
+                        </div>
+
+
+
+
+                    </div>
+                    <div id="shopitems" class="flex flex-wrap h-[100vh] overflow-y-scroll">
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+
+    <script type="module" src="../js/Category.js"></script>
+    <script>
+        function toggleFilter(filterId) {
+            const filter = document.getElementById(filterId);
+            filter.classList.toggle("hidden");
+            const angleIcon = filter.previousElementSibling.querySelector("i");
+            // Toggle the rotation class for the angle icon
+            angleIcon.classList.toggle("fa-rotate-90");
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,90 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url(https://db.onlinewebfonts.com/c/f1fcc5aed1e20fc0cdb9f8a7573625bd?family=Integral+CF+Regular);
-/* hero styling */
-@font-face {
-  font-family: "Integral CF Regular";
-  src: url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.eot");
-  src: url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.woff2")
-      format("woff2"),
-    url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.woff")
-      format("woff"),
-    url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.ttf")
-      format("truetype"),
-    url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.svg#Integral CF Regular")
-      format("svg");
-}
-.hero {
-  display: flex;
-  width: 100%;
-  height: 663px;
-  border: 2px solid black;
-  background-image: url(/hero.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  align-content: center;
-  align-items: center;
-}
+@layer components {
+  /* styles.css */
 
+  /* Flex Container */
+}
+.containe {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .containe {
+    width: 780px;
+  }
+}
+@media (min-width: 1024px) {
+  .containe {
+    width: 994px;
+  }
+}
+@media (min-width: 1280px) {
+  .containe {
+    width: 1250px;
+  }
+}
 h1 {
-  color: #000;
-  leading-trim: both;
-  text-edge: cap;
-  font-family: Integral CF;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 64px; /* 100% */
+  font-size: calc(1.475rem + 2.7vw);
 }
-.hero p {
-  color: rgba(0, 0, 0, 0.6);
-  leading-trim: both;
-  text-edge: cap;
-  font-family: Satoshi;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px; /* 137.5% */
-  display: flex;
-}
-
-.herotext {
-  width: 600px;
-}
-
-.hero button {
-  display: flex;
-  width: 210px;
-  height: 52px;
-  padding: 16px 54px;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-  background-color: black;
-  color: white;
-  border-radius: 40px;
-}
-.heronum {
-  display: flex;
-  justify-content: space-between;
-}
-
-.heronum .numc {
-  color: #000;
-  margin: 5px;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-}
-.heronum .numc span {
-  color: rgba(0, 0, 0, 0.6);
-  font-family: Satoshi;
-  font-size: 16px;
-  display: block;
-  font-style: normal;
+.padingdiv {
+  padding: 10px;
 }
