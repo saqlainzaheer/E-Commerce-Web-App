@@ -116,3 +116,8 @@ input[type="radio"] {
 .filterFirst:has(input[type="radio"]:checked) {
   background: rgb(244, 244, 245);
 }
+
+.selectCheck:has(input[type="checkbox"]:checked) {
+  background: black;
+  color: white;
+}

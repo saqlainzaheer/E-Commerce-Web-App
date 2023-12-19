@@ -191,3 +191,18 @@ function renderDressStyleFilter(data) {
 }
 
 renderDressStyleFilter(filterData);
+
+function renderSizeFilter(data) {
+  const container = document.querySelector("#sizeFilter");
+  data[0]?.sizeFilter?.forEach((item, index) => {
+    const filterItem = `
+    <label  for="${item}"
+       class="selectCheck py-[6px] px-[12px] hover:bg-black hover:text-white font-['Satoshi'] text-black text-opacity-60 rounded-3xl  bg-zinc-100">
+       <input class="hidden" type="checkbox" id="${item}" name="size">
+       <span class="text-base font-normal font-['Satoshi'] ">${item}</span>
+    </label>    
+    `;
+    container.innerHTML += filterItem;
+  });
+}
+renderSizeFilter(filterData);
