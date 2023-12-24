@@ -92,7 +92,8 @@
   background-color: #ed1d24;
 }
 
-.item_title {
+.item_title,
+.cartitemttitle {
   display: -webkit-box;
   -webkit-line-clamp: 1; /* Number of lines to show */
   -webkit-box-orient: vertical;

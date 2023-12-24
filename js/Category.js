@@ -1,6 +1,31 @@
+"use strict";
+import "../style.css";
 import { renderStars } from "./functions";
+
+//navbar js
+const togglenavbtn = document.querySelectorAll(".togglenavbtn");
+const navbarsearch = document.querySelector("#navbar-search");
+togglenavbtn.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    navbarsearch.classList.toggle("hidden");
+  });
+});
+
+var currentUrl = window.location.pathname;
+
+document.querySelectorAll(".link").forEach((link) => {
+  if (link.getAttribute("href") === currentUrl) {
+    link.classList.remove("unactivelink");
+    link.classList.add("activelink");
+    console.log(currentUrl);
+  }
+});
+// navbar js end
+
 let topSellingsData = [
   {
+    id: 1,
     image: "/image1.png",
     title: "T-SHIRT WITH TAPE DETAILS",
     rating: "3",
@@ -9,6 +34,7 @@ let topSellingsData = [
     discount: "null",
   },
   {
+    id: 2,
     image: "/image2.png",
     title: "SKINNY FIT JEANS",
     rating: "4.5",
@@ -17,6 +43,7 @@ let topSellingsData = [
     discount: "-20%",
   },
   {
+    id: 3,
     image: "/image3.png",
     title: "CHECKERED SHIRT",
     rating: "3.5",
@@ -25,6 +52,7 @@ let topSellingsData = [
     discount: "null",
   },
   {
+    id: 4,
     image: "/image4.png",
     title: "SLEEVE STRIPED T-SHIRT",
     rating: "4.5",
@@ -34,6 +62,7 @@ let topSellingsData = [
     discount: "-30%",
   },
   {
+    id: 5,
     image: "/image4.png",
     title: "SLEEVE STRIPED T-SHIRT",
     rating: "4.5",
@@ -43,6 +72,7 @@ let topSellingsData = [
     discount: "-30%",
   },
   {
+    id: 6,
     image: "/image4.png",
     title: "SLEEVE STRIPED T-SHIRT",
     rating: "4.5",
@@ -52,6 +82,7 @@ let topSellingsData = [
     discount: "-30%",
   },
   {
+    id: 7,
     image: "/image4.png",
     title: "SLEEVE STRIPED T-SHIRT",
     rating: "4.5",
@@ -61,6 +92,7 @@ let topSellingsData = [
     discount: "-30%",
   },
   {
+    id: 8,
     image: "/image4.png",
     title: "SLEEVE STRIPED T-SHIRT",
     rating: "4.5",
@@ -70,6 +102,7 @@ let topSellingsData = [
     discount: "-30%",
   },
   {
+    id: 9,
     image: "/image4.png",
     title: "SLEEVE STRIPED T-SHIRT",
     rating: "4.5",
@@ -80,15 +113,17 @@ let topSellingsData = [
   },
   // Add more data for other cards
 ];
-{
-  /* <li><a href="#"><i class="fa fa-search"></i></a></li> */
-}
+
+const cartData = [];
 
 function renderData(data) {
   if (!data) return;
   const container = document.querySelector("#shopitems");
   data.forEach((item) => {
-    const { image, title, rating, realPrice, discountPrice, discount } = item;
+    const cartdata = JSON.stringify(item);
+    const { image, title, rating, realPrice, discountPrice, discount, id } =
+      item;
+    console.log(cartdata);
 
     const cardHtml = `
     <div class="basis-6/12 sm:basis-4/12 lg:basis-3/12">
@@ -98,9 +133,12 @@ function renderData(data) {
         <!-- Product Links -->
         <ul class="product-links">
         <li><a href="#"><i class="far fa-heart"></i></a></li>
-        <li><a href="#">  <i class="fa-regular fa-eye"></i></a></li>
-        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-      
+        <li><a href="#"> <i class="fa-regular fa-eye"></i></a></li>
+        <li>
+        <button ">
+        <a href="#"><i class="addtocartbtn cart__btn fa fa-shopping-cart" data-key='${cartdata}'></i></a>
+        </button>
+        </li>
         </ul>
       </div>
       <h4 class="item_title text-black text-[0.75rem] sm:text-base mt-3 font-bold font-['Satoshi']">${title}</h4>
@@ -206,3 +244,124 @@ function renderSizeFilter(data) {
   });
 }
 renderSizeFilter(filterData);
+
+///cart open
+
+const cartBtn = document?.querySelector(".cartbtn");
+const Cartmodal = document?.querySelector("#modal");
+const cartCloseBtn = document?.querySelector("#cart__close__btn");
+cartBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  Cartmodal.classList.remove("hidden");
+
+  const cartData = JSON.parse(localStorage.getItem("cartData"));
+  renderCartData(cartData);
+});
+
+cartCloseBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  Cartmodal.classList.add("hidden");
+});
+
+// Push to Cart Logic
+
+// const cartData = [];
+
+// const shopitembox = document?.querySelector("#shopitems");
+
+// shopitembox.addEventListener("click", function (e) {
+//   e.preventDefault();
+
+//   const cartBtn = e.target.classList.contains("cart__btn");
+//   if (!cartBtn) return;
+//   const cartitem = JSON.parse(e.target.dataset.key);
+//   cartData.push(cartitem);
+//   console.log(cartData);
+
+//   localStorage.setItem("cartData", JSON.stringify(cartData));
+// });
+
+const shopitembox = document?.querySelector("#shopitems");
+
+shopitembox.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const cartBtn = e.target.classList.contains("cart__btn");
+  if (!cartBtn) return;
+
+  const cartitem = JSON.parse(e.target.dataset.key);
+
+  // Check if the item with the same id is already in the cartData array
+  const isAlreadyInCart = cartData.some((item) => item.id === cartitem.id);
+
+  if (!isAlreadyInCart) {
+    cartData.push(cartitem);
+    // Store the entire cartData array in local storage
+    localStorage.setItem("cartData", JSON.stringify(cartData));
+    console.log(cartData);
+  } else {
+    alert("Item is already in the cart");
+  }
+});
+
+///reander cart data
+
+function renderCartData(data) {
+  if (!data) return;
+  const container = document.querySelector("#cartRenderDiv");
+  data.forEach((item) => {
+    const { image, title, rating, realPrice, discountPrice, discount, id } =
+      item;
+    console.log(item);
+
+    const cardHtml = `
+    <li class="flex items-center gap-4">
+    <img src="${image}" alt="" class="h-16 w-16 rounded object-cover" />
+
+    <div>
+        <h3 class="cartitemttitle text-sm text-gray-900">${title}</h3>
+
+        <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
+            <div>
+                <dt class="inline">Size:</dt>
+                <dd class="inline">XXS</dd>
+            </div>
+
+            <div>
+                <dt class="inline">Color:</dt>
+                <dd class="inline">White</dd>
+            </div>
+        </dl>
+        <h3 class="text-sm text-gray-900">120$</h3>
+    </div>
+
+    <div class="flex flex-1 items-center justify-end gap-2 mr-2  ">
+        <div class="flex items-center rounded-full border border-gray-200 ">
+            <label for="Line1Qty" class="sr-only"> Quantity </label>
+            <button type="button"
+                class="h-6 w-6 leading-10 text-gray-600 transition hover:opacity-75  flex justify-center items-center">
+                &minus;
+            </button>
+            <input type="number" min="1" value="1" id="Line1Qty"
+                class="h-6 w-6 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
+            <button type="button"
+                class="h-6 w-6 leading-10 text-gray-600 transition hover:opacity-75 flex justify-center items-center">
+                &plus;
+            </button>
+        </div>
+
+        <button class="text-gray-600 transition hover:text-red-600 ">
+            <span class="sr-only">Remove item</span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+            </svg>
+        </button>
+    </div>
+</li>`;
+
+    container.innerHTML += cardHtml;
+  });
+}

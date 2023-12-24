@@ -1,5 +1,5 @@
 import "./style.css";
-import { renderStars } from "./src/js/functions";
+import { renderStars } from "/js/functions";
 
 // ------------------------------------new arival data -------------
 let arivalData = [
@@ -78,11 +78,11 @@ let topSellingsData = [
 ];
 
 function renderData(data, type) {
-  const container = document.querySelector(
+  const container = document?.querySelector(
     `${type === "arivalData" ? ".newarivals_box" : ".topsellings_box"}`
   );
 
-  data.forEach((item) => {
+  data?.forEach((item) => {
     const { image, title, rating, realPrice, discountPrice, discount } = item;
 
     const cardHtml = `
@@ -223,4 +223,23 @@ $(function () {
       },
     ],
   });
+});
+
+const togglenavbtn = document.querySelectorAll(".togglenavbtn");
+const navbarsearch = document.querySelector("#navbar-search");
+togglenavbtn.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    navbarsearch.classList.toggle("hidden");
+  });
+});
+
+var currentUrl = window.location.pathname;
+
+document.querySelectorAll(".link").forEach((link) => {
+  if (link.getAttribute("href") === currentUrl) {
+    link.classList.remove("unactivelink");
+    link.classList.add("activelink");
+    console.log(currentUrl);
+  }
 });
