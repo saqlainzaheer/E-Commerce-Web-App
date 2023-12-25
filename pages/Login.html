@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommerce Login</title>
+  <!-- Include the Tailwind CSS stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+
+  <div class="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
+    <!-- Logo -->
+    <div class="mb-6 text-center">
+      <img src="/public/logomain.png" alt="Logo" class="mx-auto h-12">
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <!-- Username/Email Button -->
+      <div class="mb-4">
+        <label for="username" class="text-sm text-gray-600">Username/Email</label>
+        <input type="text" id="username" name="username" class="w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500">
+      </div>
+
+      <!-- Password Button -->
+      <div class="mb-4">
+        <label for="password" class="text-sm text-gray-600">Password</label>
+        <input type="password" id="password" name="password" class="w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500">
+      </div>
+      <button type="button" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
+        Login
+      </button>
+      <p class="text-lg text-right text-blue-600"><a href="/">forgot password.</a></p>
+      
+      
+    </form>
+    <!-- Social Login Buttons -->
+    <div class="mt-4 flex-wrap sm:flex items-center justify-between">
+        <button type="button" class="flex items-center justify-center w-full  text-black py-2 px-4 rounded hover:bg-red-600 hover:text-white focus:outline-none focus:shadow-outline-red">
+            <img src="/public/google.png" alt="Google Logo" class="mr-2 h-4 w-4"> Login with Google
+          </button>
+        <button type="button" class="flex items-center justify-center w-full  text-black py-2 px-4 rounded hover:bg-blue-600 hover:text-white focus:outline-none focus:shadow-outline-blue">
+            <img src="/public/facebookLogo.png" alt="Facebook Logo" class="mr-2 h-4 w-4"> Login with Facebook
+          </button>
+      </div>
+
+    <!-- Social Login Buttons -->
+    <div class="mt-4 flex items-center justify-between">
+      
+    </div>
+
+    <!-- Sign Up Link -->
+    <div class="mt-4 text-center">
+      <p class="text-sm text-gray-600">Don't have an account? <a href="/pages/Signup.html" class="text-blue-500 hover:underline">Sign Up</a></p>
+    </div>
+  </div>
+
+  </body>
+</html>
