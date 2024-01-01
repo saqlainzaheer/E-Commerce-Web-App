@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
-    "axios": "^1.6.3",
     "init": "^0.1.2",
     "jquery": "^3.7.1",
     "slick-carousel": "^1.8.1"
