@@ -34,7 +34,7 @@ let topSellingsData = [
     realPrice: "$160",
     discountPrice: "null",
     discount: "null",
-    catagory:[{red:{small:4,medium:2,large:5 },   green:{small:5,medium: 2,large:0}}]
+    catagory:[{red:{small:4,medium:2,large:5 },  green:{small:5,medium: 2,large:0}}]
   },
   {
     id: 2,

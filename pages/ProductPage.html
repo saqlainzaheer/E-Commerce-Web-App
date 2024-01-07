@@ -1783,203 +1783,221 @@
               </label>
             </div>
           </form>
+          <div id="app" class="max-w-md mx-auto bg-white p-8 rounded shadow-md">
+            <form action="" onsubmit="event.preventDefault(); ss(this); ">
+              <div>
 
-          <h4 class="my-4 text-xl font-bold mb-4 text-gray-900 dark:text-white">Enter Product Stock</h4>
-          <form>
-            <div class="grid grid-cols-6 gap-6">
+                <h1 class="text-2xl font-bold mb-4">Product Selection</h1>
 
+                <!-- Input for color name -->
+                <div class="mb-4">
+                  <label for="colorName" class="block text-sm font-medium text-gray-600">Color Name:</label>
+                  <input type="text" id="colorName" name="colorName"
+                    class="w-full py-2 px-3 border border-gray-300 rounded" required>
+                </div>
 
-              <!-- Input for color name -->
-              <div class="col-span-3">
-                <label for="colorName" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Color
-                  Name:</label>
-                <input type="text" id="colorName" name="colorName"
-                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                  required>
+                <!-- Input for selecting color through a color palette -->
+                <div class="mb-4">
+                  <label for="color" class="block text-sm font-medium text-gray-600">Select Color:</label>
+                  <input type="color" id="color" name="color" class="w-full py-2 px-3 border border-gray-300 rounded"
+                    required>
+                </div>
+
+                <!-- Button to add color input fields in a table -->
+                <button type="button" onclick="addColorTable()" class="bg-blue-500 text-white py-2 px-4 rounded">Add
+                  Table</button>
+
+                <!-- Display color input fields in a table format -->
+                <div id="colorTable" class="mt-4">
+                  <table class="w-full">
+                    <thead>
+                      <tr>
+                        <th class="border px-4 py-2">Color Name</th>
+                        <th class="border px-4 py-2">Small</th>
+                        <th class="border px-4 py-2">Medium</th>
+                        <th class="border px-4 py-2">Large</th>
+                        <th class="border px-4 py-2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+
+                <!-- Error message display -->
+                <p id="errorMessage" class="text-red-500 mt-2"></p>
+                <button type="submit">kkk</button>
               </div>
-
-              <!-- Input for selecting color through a color palette -->
-              <div class=" col-span-3">
-                <label for="color" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Select
-                  Color:</label>
-                <input type="color" id="color" name="color"
-                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block  rounded-lg border border-gray-300 bg-gray-50 h-10 text-gray-900 shadow-sm  dark:border-gray-600 dark:bg-gray-700 dark:text-white  dark:placeholder-gray-400"
-                  required>
-              </div>
-
-              <!-- Input for quantity -->
-              <div class=" col-span-6 sm:col-span-3">
-                <label for="quantity"
-                  class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Stock:</label>
-                <input type="number" id="quantity" name="quantity" min="1"
-                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                  required>
-              </div>
-              <!-- Input for selecting size -->
-              <div class="col-span-6 sm:col-span-3">
-                <label for="size" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Select
-                  Size:</label>
-                <select id="size" name="size"
-                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                  required>
-                  <option value="small">Small</option>
-                  <option value="medium">Medium</option>
-                  <option value="large">Large</option>
-                </select>
-              </div>
-            </div>
-            <!-- Button to add this entry -->
-            <button type="button" onclick="addEntry()"
-              class="my-4 bg-blue-500 text-white py-2 px-4 rounded">Add</button>
-
-            <!-- Display entries in a table format -->
-            <table id="entries" class="w-full mt-4 overflow-x-auto pb-6">
-              <thead>
-                <tr class="bg-gray-100 dark:bg-gray-700">
-                  <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Quantity
-                  </th>
-                  <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Size</th>
-                  <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Color</th>
-                  <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Entries will be displayed here -->
-              </tbody>
-            </table>
-
-            <!-- Error message display -->
-            <p id="errorMessage" class="text-red-500 mt-2"></p>
-
-            <!-- Modal footer -->
-            <div class="items-center rounded-b border-t border-gray-200 pt-6 dark:border-gray-700 justify-evenly">
-              <button
-                class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
-                type="submit">Add user</button>
-            </div>
-          </form>
-
+            </form>
+          </div>
         </div>
-      </div>
-    </div>
 
 
 
 
-    <script>
-      // Function to add a new entry and update the display
-      function addEntry() {
-        const colorName = document.getElementById('colorName').value;
-        const color = document.getElementById('color').value;
-        const quantity = document.getElementById('quantity').value;
-        const size = document.getElementById('size').value;
+        <script>
 
-        // Check if input fields are not empty
-        if (!colorName || !color || !quantity || !size) {
-          document.getElementById('errorMessage').innerText = "Please fill in all fields.";
-          return;
-        }
-
-        // Check if quantity is a positive integer
-        if (isNaN(quantity) || parseInt(quantity) <= 0 || !Number.isInteger(parseFloat(quantity))) {
-          document.getElementById('errorMessage').innerText = "Please enter a valid quantity.";
-          return;
-        }
-
-        // Check if the combination of color and size is not duplicated
-        const existingEntries = Array.from(document.querySelectorAll('#entries tbody tr')).map(row => ({
-          color: row.cells[2].dataset.color,
-          size: row.cells[1].innerText
-        }));
-
-        if (existingEntries.some(entry => entry.color === color && entry.size === size)) {
-          document.getElementById('errorMessage').innerText = "Combination of color and size must not be duplicated.";
-          return;
-        }
-
-        // Clear error message
-        document.getElementById('errorMessage').innerText = "";
-
-        // Update the table
-        const entryTableBody = document.querySelector('#entries tbody');
-        const entryRow = document.createElement('tr');
-        entryRow.innerHTML = `
-                <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">${quantity}</td>
-                <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">${size}</td>
-                <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-5" data-color="${color}">${colorName}
-                   <span class="inline-block w-4 h-4 rounded-full" style="background-color: ${color};"></span>
-                  </td>
-                <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white"><button type="button" onclick="removeEntry(this)" class="text-red-500">Remove</button></td>
-            `;
-        entryTableBody.appendChild(entryRow);
-      }
-
-      // Function to remove the corresponding form entry
-      function removeEntry(button) {
-        button.closest('tr').remove();
-      }
-
-      // Get references to the button, the two SVG icons, and the body element
-      const themeToggle = document.getElementById('theme-toggle');
-      const darkIcon = document.getElementById('theme-toggle-dark-icon');
-      const lightIcon = document.getElementById('theme-toggle-light-icon');
-      const body = document.body;
-
-      // Add click event listener to the button
-      themeToggle.addEventListener('click', function () {
-        // Toggle the visibility of the SVG icons
-        darkIcon.classList.toggle('hidden');
-        lightIcon.classList.toggle('hidden');
-
-        // Toggle the dark class on the body
-        body.classList.toggle('dark');
-      });
-
-
-      const createProductButton = document.getElementById('createProductButton');
-      const closeProductButton = document.getElementById('closeProductButton');
-
-      const addProductModal = document.getElementById('add-product-modal');
-
-      // Add click event listener to the button
-      createProductButton.addEventListener('click', function () {
-        // Toggle the "hidden" class on the modal
-        addProductModal.classList.remove('hidden');
-      });
-      closeProductButton.addEventListener('click', function () {
-        // Toggle the "hidden" class on the modal
-        addProductModal.classList.add('hidden');
-      });
-
-      const imageContainer = document.getElementById('imageContainer');
-      const fileInput = document.getElementById('fileInput');
-
-      fileInput.addEventListener('change', handleFileUpload);
-
-      function handleFileUpload(event) {
-        const files = event.target.files;
-
-        for (const file of files) {
-          // Check if the file is an image
-          if (isImage(file)) {
-            // Display the image in the image container in the specified format
-            displayImage(file);
-          } else {
-            alert('Please upload a valid image file.');
+          const productData = {
+            id: 1,
+            image: ["/image1.png", "/image1.png"],
+            title: "T-SHIRT WITH TAPE DETAILS",
+            rating: "3",
+            realPrice: "$160",
+            discountPrice: "null",
+            discount: "null",
+            category: []
           }
-        }
-      }
 
-      function isImage(file) {
-        const acceptedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        return file && acceptedImageTypes.includes(file.type);
-      }
 
-      function displayImage(file) {
-        const imageUrl = URL.createObjectURL(file);
 
-        const imageElement = document.createElement('div');
-        imageElement.innerHTML = `
+          // Function to add color input fields in a table
+          function addColorTable() {
+            const colorName = document.getElementById('colorName').value;
+            const color = document.getElementById('color').value;
+
+            // Check if input fields are not empty
+            if (!colorName || !color) {
+              document.getElementById('errorMessage').innerText = "Please fill in all fields.";
+              return;
+            }
+
+            // Check if the color already exists in the table
+            const existingColors = Array.from(document.querySelectorAll('#colorTable tbody tr')).map(row => row.cells[0].innerText.toLowerCase());
+            if (existingColors.includes(colorName.toLowerCase())) {
+              document.getElementById('errorMessage').innerText = "Color already exists in the table.";
+              return;
+            }
+
+            // Clear error message
+            document.getElementById('errorMessage').innerText = "";
+
+            // Create input fields for the color in a table format
+            const colorTableDiv = document.getElementById('colorTable');
+            const colorTableBody = colorTableDiv.querySelector('tbody');
+            const colorTableRow = document.createElement('tr');
+            colorTableRow.innerHTML = `
+                <td class="border px-4 py-2">${colorName}</td>
+                <td class="border px-4 py-2"><input type="text" name="sizeSmall" class="w-full py-2 px-3 border border-gray-300 rounded" required></td>
+                <td class="border px-4 py-2"><input type="text" name="sizeMedium" class="w-full py-2 px-3 border border-gray-300 rounded" required></td>
+                <td class="border px-4 py-2"><input type="text" name="sizeLarge" class="w-full py-2 px-3 border border-gray-300 rounded" required></td>
+                <td class="border px-4 py-2"><button type="button" onclick="removeColorRow(this)" class="text-red-500">Remove</button></td>
+            `;
+            colorTableBody.appendChild(colorTableRow);
+          }
+
+          // Function to remove the corresponding color row
+          function removeColorRow(button) {
+            const colorNameToRemove = button.closest('tr').cells[0].innerText;
+            button.closest('tr').remove();
+
+            // Remove corresponding data from the global object
+            productData.category = productData.category.filter(entry => Object.keys(entry)[0].toLowerCase() !== colorNameToRemove.toLowerCase());
+          }
+
+          // Function to push data into the global object
+          function ss() {
+            // Clear error message
+            document.getElementById('errorMessage').innerText = "";
+
+            // Get the color table data
+            const colorTableBody = document.getElementById('colorTable').querySelector('tbody');
+            const colorRows = Array.from(colorTableBody.getElementsByTagName('tr'));
+
+            // Loop through each color row and extract data
+            colorRows.forEach(row => {
+              const colorName = row.cells[0].innerText;
+              const sizeSmall = row.querySelector('input[name="sizeSmall"]').value;
+              const sizeMedium = row.querySelector('input[name="sizeMedium"]').value;
+              const sizeLarge = row.querySelector('input[name="sizeLarge"]').value;
+
+              // Check if input fields are not empty
+              if (!sizeSmall || !sizeMedium || !sizeLarge) {
+                document.getElementById('errorMessage').innerText = "Please fill in all size fields.";
+                return;
+              }
+
+              // Check if the color already exists in the global object
+              const existingColorIndex = productData.category.findIndex(entry => Object.keys(entry)[0].toLowerCase() === colorName.toLowerCase());
+              if (existingColorIndex !== -1) {
+                // Update existing color data
+                productData.category[existingColorIndex][colorName.toLowerCase()] = {
+                  small: parseInt(sizeSmall, 10),
+                  medium: parseInt(sizeMedium, 10),
+                  large: parseInt(sizeLarge, 10)
+                };
+              } else {
+                // Add new color data
+                productData.category.push({
+                  [colorName.toLowerCase()]: {
+                    small: parseInt(sizeSmall, 10),
+                    medium: parseInt(sizeMedium, 10),
+                    large: parseInt(sizeLarge, 10)
+                  }
+                });
+              }
+            });
+
+            console.log(productData);
+            // Get references to the button, the two SVG icons, and the body element
+          } const themeToggle = document.getElementById('theme-toggle');
+          const darkIcon = document.getElementById('theme-toggle-dark-icon');
+          const lightIcon = document.getElementById('theme-toggle-light-icon');
+          const body = document.body;
+
+          // Add click event listener to the button
+          themeToggle.addEventListener('click', function () {
+            // Toggle the visibility of the SVG icons
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            // Toggle the dark class on the body
+            body.classList.toggle('dark');
+          });
+
+
+          const createProductButton = document.getElementById('createProductButton');
+          const closeProductButton = document.getElementById('closeProductButton');
+
+          const addProductModal = document.getElementById('add-product-modal');
+
+          // Add click event listener to the button
+          createProductButton.addEventListener('click', function () {
+            // Toggle the "hidden" class on the modal
+            addProductModal.classList.remove('hidden');
+          });
+          closeProductButton.addEventListener('click', function () {
+            // Toggle the "hidden" class on the modal
+            addProductModal.classList.add('hidden');
+          });
+
+          const imageContainer = document.getElementById('imageContainer');
+          const fileInput = document.getElementById('fileInput');
+
+          fileInput.addEventListener('change', handleFileUpload);
+
+          function handleFileUpload(event) {
+            const files = event.target.files;
+
+            for (const file of files) {
+              // Check if the file is an image
+              if (isImage(file)) {
+                // Display the image in the image container in the specified format
+                displayImage(file);
+              } else {
+                alert('Please upload a valid image file.');
+              }
+            }
+          }
+
+          function isImage(file) {
+            const acceptedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            return file && acceptedImageTypes.includes(file.type);
+          }
+
+          function displayImage(file) {
+            const imageUrl = URL.createObjectURL(file);
+
+            const imageElement = document.createElement('div');
+            imageElement.innerHTML = `
         <div class="">
           <img src="${imageUrl}" class="h-24 w-24 bg-transparent" alt="Uploaded Image">
           <button class="delete-button cursor-pointer">
@@ -1993,21 +2011,21 @@
         </div>
       `;
 
-        // Add an event listener to the delete button
-        const deleteButton = imageElement.querySelector('.delete-button');
-        deleteButton.addEventListener('click', () => {
-          // Remove the image element when the delete button is clicked
-          imageContainer.removeChild(imageElement);
-        });
+            // Add an event listener to the delete button
+            const deleteButton = imageElement.querySelector('.delete-button');
+            deleteButton.addEventListener('click', () => {
+              // Remove the image element when the delete button is clicked
+              imageContainer.removeChild(imageElement);
+            });
 
-        imageContainer.appendChild(imageElement);
-      }
+            imageContainer.appendChild(imageElement);
+          }
 
-    </script>
+        </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-    <script src="../node_modules/axios/dist/axios.min.js"></script>
-    <script src="../js/ProductPage.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+        <script src="../node_modules/axios/dist/axios.min.js"></script>
+        <script src="../js/ProductPage.js"></script>
 </body>
 
 </html>
