@@ -28,12 +28,13 @@ document.querySelectorAll(".link").forEach((link) => {
 let topSellingsData = [
   {
     id: 1,
-    image: "/image1.png",
+    image: ["/image1.png","/image1.png"],
     title: "T-SHIRT WITH TAPE DETAILS",
     rating: "3",
     realPrice: "$160",
     discountPrice: "null",
     discount: "null",
+    catagory:[{red:{small:4,medium:2,large:5 },   green:{small:5,medium: 2,large:0}}]
   },
   {
     id: 2,

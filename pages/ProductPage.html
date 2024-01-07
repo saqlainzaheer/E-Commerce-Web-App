@@ -1,515 +1,2013 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <nav
-      class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700"
-    >
-      <div class="px-3 py-3 lg:px-5 lg:pl-3">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center justify-start rtl:justify-end">
-            <button
-              data-drawer-target="logo-sidebar"
-              data-drawer-toggle="logo-sidebar"
-              aria-controls="logo-sidebar"
-              type="button"
-              class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            >
-              <span class="sr-only">Open sidebar</span>
-              <svg
-                class="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  fill-rule="evenodd"
-                  d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-                ></path>
-              </svg>
-            </button>
-            <a href="https://flowbite.com" class="flex ms-2 md:me-24">
-              <img
-                src="../public/logomain.png"
-                class="h-8 me-3"
-                alt="FlowBite Logo"
-              />
-              <span
-                class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"
-                >Shop.Co</span
-              >
-            </a>
-          </div>
-          <div class="flex items-center">
-            <div class="flex items-center ms-3">
-              <div>
-                <button
-                  type="button"
-                  class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                  aria-expanded="false"
-                  data-dropdown-toggle="dropdown-user"
-                >
-                  <span class="sr-only">Open user menu</span>
-                  <img
-                    class="w-8 h-8 rounded-full"
-                    src="../public/adminlogo.jpg"
-                    alt="user photo"
-                  />
-                </button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+</head>
+
+<body class="dark" style="height: 100vh; ">
+  <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center justify-start rtl:justify-end">
+          <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+            type="button"
+            class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+            <span class="sr-only">Open sidebar</span>
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path clip-rule="evenodd" fill-rule="evenodd"
+                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+              </path>
+            </svg>
+          </button>
+          <a href="https://flowbite.com" class="flex ms-2 md:me-24">
+            <img src="../public/logomain.png" class="h-8 me-3" alt="FlowBite Logo" />
+            <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Shop.Co</span>
+          </a>
+        </div>
+        <div class="flex items-center">
+
+          <button id="theme-toggle" data-tooltip-target="tooltip-toggle" type="button"
+            class="rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+            <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div class="flex items-center ms-3">
+            <div>
+              <button type="button"
+                class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                <span class="sr-only">Open user menu</span>
+                <img class="w-8 h-8 rounded-full" src="../public/adminlogo.jpg" alt="user photo" />
+              </button>
+            </div>
+            <div
+              class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+              id="dropdown-user">
+              <div class="px-4 py-3" role="none">
+                <p class="text-sm text-gray-900 dark:text-white" role="none">
+                  Muhammad Usman
+                </p>
+                <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                  usman@gmail.com
+                </p>
               </div>
-              <div
-                class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-                id="dropdown-user"
-              >
-                <div class="px-4 py-3" role="none">
-                  <p class="text-sm text-gray-900 dark:text-white" role="none">
-                    Muhammad Usman
-                  </p>
-                  <p
-                    class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
-                    role="none"
-                  >
-                    usman@gmail.com
-                  </p>
+              <ul class="py-1" role="none">
+                <li>
+                  <a href="./AdminDashboard.html"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                    role="menuitem">Dashboard</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                    role="menuitem">Sign out</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <aside id="logo-sidebar"
+    class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+    aria-label="Sidebar">
+    <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+      <ul class="space-y-2 font-medium">
+        <li>
+          <a href="./AdminDashboard.html"
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <svg
+              class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+              <path
+                d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+              <path
+                d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+            </svg>
+            <span class="ms-3">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="./AdminPage.html"
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <svg
+              class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+              <path
+                d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+            </svg>
+            <span class="flex-1 ms-3 whitespace-nowrap">Admins</span>
+          </a>
+        </li>
+        <li>
+          <a href="./Users.html"
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <svg
+              class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+              <path
+                d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+            </svg>
+            <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
+          </a>
+        </li>
+        <li>
+          <a href="./ProductPage.html"
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <svg
+              class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+              <path
+                d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
+            </svg>
+            <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class=" sm:ml-64">
+    <div class=" border-2 border-gray-200  rounded-lg dark:border-gray-700 mt-14">
+
+
+      <div
+        class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-full mb-1">
+          <div class="mb-4">
+            <nav class="flex mb-5" aria-label="Breadcrumb">
+              <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
+                <li class="inline-flex items-center">
+                  <a href="#"
+                    class="inline-flex items-center text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-white">
+                    <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                      </path>
+                    </svg>
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <div class="flex items-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    <a href="#"
+                      class="ml-1 text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">E-commerce</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex items-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500" aria-current="page">Products</span>
+                  </div>
+                </li>
+              </ol>
+            </nav>
+            <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">All products</h1>
+          </div>
+          <div class="items-center justify-between block sm:flex md:divide-x md:divide-gray-100 dark:divide-gray-700">
+            <div class="flex items-center mb-4 sm:mb-0">
+              <form class="sm:pr-3" action="#" method="GET">
+                <label for="products-search" class="sr-only">Search</label>
+                <div class="relative w-48 mt-1 sm:w-64 xl:w-96">
+                  <input type="text" name="email" id="products-search"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Search for products">
                 </div>
-                <ul class="py-1" role="none">
-                  <li>
-                    <a
-                      href="./AdminDashboard.html"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem"
-                      >Dashboard</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem"
-                      >Sign out</a
-                    >
-                  </li>
-                </ul>
+              </form>
+              <div class="flex items-center w-full sm:justify-end">
+                <div class="flex pl-2 space-x-1 flex-wrap">
+                  <a href="#"
+                    class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                  <a href="#"
+                    class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                  <a href="#"
+                    class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                  <a href="#"
+                    class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
+                      </path>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
+            <button id="createProductButton"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              type="button">
+              Add new product
+            </button>
           </div>
         </div>
       </div>
-    </nav>
 
-    <aside
-      id="logo-sidebar"
-      class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
-      aria-label="Sidebar"
-    >
-      <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-        <ul class="space-y-2 font-medium">
-          <li>
-            <a
-              href="./AdminDashboard.html"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-            >
-              <svg
-                class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 21"
-              >
-                <path
-                  d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"
-                />
-                <path
-                  d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"
-                />
-              </svg>
-              <span class="ms-3">Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="./AdminPage.html"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-            >
-              <svg
-                class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 18"
-              >
-                <path
-                  d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"
-                />
-              </svg>
-              <span class="flex-1 ms-3 whitespace-nowrap">Admins</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="./Users.html"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-            >
-              <svg
-                class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 18"
-              >
-                <path
-                  d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"
-                />
-              </svg>
-              <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="./ProductPage.html"
-              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-            >
-              <svg
-                class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 18 20"
-              >
-                <path
-                  d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"
-                />
-              </svg>
-              <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </aside>
+      <div class="flex flex-col " style="flex:1; overflow-y: auto;">
+        <div class="overflow-x-auto  ">
+          <div class="inline-block w-full align-middle  ">
 
-    <div class="p-4 sm:ml-64">
-      <div
-        class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14"
-      >
-        <section>
-          <div class="flex justify-end">
-            <div
-              id="toast-success"
-              class="hidden flex justify-end items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
-              role="alert"
-            >
-              <div
-                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200"
-              >
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
-                  />
-                </svg>
-                <span class="sr-only">Check icon</span>
-              </div>
-              <div id="successcontent" class="ms-3 text-sm font-normal">
-                Admin Created successfully.
-              </div>
-              <button
-                type="button"
-                class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-                data-dismiss-target="#toast-success"
-                aria-label="Close"
-              >
-                <span class="sr-only">Close</span>
-                <svg
-                  class="w-3 h-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div
-              id="toast-danger"
-              class="hidden flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
-              role="alert"
-            >
-              <div
-                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200"
-              >
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z"
-                  />
-                </svg>
-                <span class="sr-only">Error icon</span>
-              </div>
-              <div id="errorcontent" class="ms-3 text-sm font-normal">
-                Error in Creating Admin.
-              </div>
-              <button
-                type="button"
-                class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-                data-dismiss-target="#toast-danger"
-                aria-label="Close"
-              >
-                <span class="sr-only">Close</span>
-                <svg
-                  class="w-3 h-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <h4 class="text-center text-blue-700 font-bold text-2xl">
-            Manage Products
-          </h4>
-          <div style="margin-top: 20px" class="text-center">
-            <button
-              type="submit"
-              data-modal-target="crud-modal"
-              data-modal-toggle="crud-modal"
-              class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-            >
-              Create Product
-            </button>
-          </div>
-          <div
-            id="crud-modal"
-            tabindex="-1"
-            aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
-          >
-            <div class="relative p-4 w-full max-w-md max-h-full">
-              <!-- Modal content -->
-              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
-                <div
-                  class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
-                >
-                  <h3
-                    class="text-lg font-semibold text-gray-900 dark:text-white"
-                  >
-                    Create New Product
-                  </h3>
-                  <button
-                    type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                    data-modal-toggle="crud-modal"
-                  >
-                    <svg
-                      class="w-3 h-3"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 14"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                      />
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                  </button>
-                </div>
-                <!-- Modal body -->
-                <form
-                  class="p-4 md:p-5"
-                  onsubmit="addProduct(event)"
-                  method="post"
-                >
-                  <div class="grid gap-4 mb-4 grid-cols-2">
-                    <div class="col-span-2">
-                      <label
-                        for="name"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Name</label
-                      >
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="Type product name"
-                        required=""
-                      />
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                      <label
-                        for="price"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Price</label
-                      >
-                      <input
-                        type="number"
-                        name="price"
-                        id="price"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="$2999"
-                        required=""
-                      />
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                      <label
-                        for="category"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Category</label
-                      >
-                      <select
-                        id="category"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      >
-                        <option selected="">Select category</option>
-                        <option value="TV">TShirt</option>
-                        <option value="PC">Trouser</option>
-                        <option value="GA">Jeans</option>
-                        <option value="PH">Others</option>
-                      </select>
-                    </div>
-                    <div class="col-span-2">
-                      <label
-                        for="images"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >
-                        Images
-                      </label>
-                      <input
-                        type="file"
-                        name="images"
-                        id="images"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        multiple
-                      />
-                      <div id="image-preview" class="mt-2 space-y-2"></div>
-                    </div>
-
-                    <!-- Color Field -->
-                    <div class="col-span-2">
-                      <label
-                        for="color"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >
-                        Color
-                      </label>
-                      <input
-                        type="text"
-                        name="color"
-                        id="color"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Enter color(s) separated by commas"
-                      />
-                    </div>
-                    <div class="col-span-2">
-                      <label
-                        for="description"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Product Description</label
-                      >
-                      <textarea
-                        id="description"
-                        rows="4"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Write product description here"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <button
-                    type="submit"
-                    class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    <svg
-                      class="me-1 -ms-1 w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    Add new product
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section id="displayadmin" style="margin-top: 30px">
-          <h4 class="text-center text-blue-700 font-bold text-2xl">
-            Display Products
-          </h4>
-          <div
-            class="relative overflow-x-auto shadow-md sm:rounded-lg"
-            style="margin-top: 20px"
-          >
-            <table
-              class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-            >
-              <thead
-                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-              >
+            <table class="w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600  ">
+              <thead class="bg-gray-100 dark:bg-gray-700">
                 <tr>
-                  <th scope="col" class="px-6 py-3">Main Image</th>
-                  <th scope="col" class="px-6 py-3">Product Name</th>
-                  <th scope="col" class="px-6 py-3">Colors</th>
-                  <th scope="col" class="px-6 py-3">Category</th>
-                  <th scope="col" class="px-6 py-3">Description</th>
-                  <th scope="col" class="px-6 py-3">Action</th>
+                  <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-all" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-all" class="sr-only">checkbox</label>
+                    </div>
+                  </th>
+                  <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                    Product Name
+                  </th>
+                  <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                    Technology
+                  </th>
+                  <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                    Description
+                  </th>
+                  <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                    ID
+                  </th>
+                  <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                    Price
+                  </th>
+                  <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                    Discount
+                  </th>
+                  <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                    Actions
+                  </th>
                 </tr>
               </thead>
-              <tbody id="addrow"></tbody>
+              <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-194556" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-194556" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#194556</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-623232" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-623232" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">React UI Kit</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">React JS</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#623232</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$129</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">10%</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-194356" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-194356" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#194356</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-323323" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-323323" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">React UI Kit</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">React JS</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#323323</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$129</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-994856" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-994856" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#994856</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">25%</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-194256" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-194256" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#194256</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">10%</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-623378" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-623378" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">React UI Kit</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">React JS</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#623378</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$129</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-192856" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-192856" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#192856</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-523323" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-523323" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">React UI Kit</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">React JS</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#523323</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$129</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-191857" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-191857" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#191857</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-914856" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-914856" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#914856</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">30%</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-633293" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-633293" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">React UI Kit</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">React JS</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#633293</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$129</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-194556" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-194556" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#194556</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-623232" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-623232" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">React UI Kit</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">React JS</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#623232</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$129</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-194356" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-194356" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#194356</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">5%</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-323323" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-323323" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">React UI Kit</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">React JS</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#323323</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$129</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-994856" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-994856" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#994856</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-194256" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-194256" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#194256</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-623378" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-623378" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">React UI Kit</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">React JS</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#623378</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$129</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">50%</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-192856" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-192856" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#192856</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-523323" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-523323" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">React UI Kit</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">React JS</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#523323</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$129</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-191857" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-191857" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#191857</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">10%</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-914856" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-914856" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">Education Dashboard</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#914856</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$149</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="w-4 p-4">
+                    <div class="flex items-center">
+                      <input id="checkbox-633293" aria-describedby="checkbox-1" type="checkbox"
+                        class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-633293" class="sr-only">checkbox</label>
+                    </div>
+                  </td>
+                  <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                    <div class="text-base font-semibold text-gray-900 dark:text-white">React UI Kit</div>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">Html templates</div>
+                  </td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">React JS</td>
+                  <td
+                    class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                    Start developing with an open-source library of over 450+ UI components, sections, and pages built
+                    with the utility classes from Tailwind CSS and designed in Figma.</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">#633293</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$129</td>
+                  <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">No</td>
+
+                  <td class="p-4 space-x-2 whitespace-nowrap">
+                    <button type="button" id="updateProductButton" data-drawer-target="drawer-update-product-default"
+                      data-drawer-show="drawer-update-product-default" aria-controls="drawer-update-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                        </path>
+                        <path fill-rule="evenodd"
+                          d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Update
+                    </button>
+                    <button type="button" id="deleteProductButton" data-drawer-target="drawer-delete-product-default"
+                      data-drawer-show="drawer-delete-product-default" aria-controls="drawer-delete-product-default"
+                      data-drawer-placement="right"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                      Delete item
+                    </button>
+                  </td>
+                </tr>
+
+              </tbody>
             </table>
+
           </div>
-        </section>
+        </div>
+      </div>
+      <!--<section>
+        <div class="flex justify-end">
+          <div id="toast-success"
+            class="hidden flex justify-end items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+            role="alert">
+            <div
+              class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+              </svg>
+              <span class="sr-only">Check icon</span>
+            </div>
+            <div id="successcontent" class="ms-3 text-sm font-normal">
+              Admin Created successfully.
+            </div>
+            <button type="button"
+              class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+              data-dismiss-target="#toast-success" aria-label="Close">
+              <span class="sr-only">Close</span>
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+              </svg>
+            </button>
+          </div>
+          <div id="toast-danger"
+            class="hidden flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+            role="alert">
+            <div
+              class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                viewBox="0 0 20 20">
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" />
+              </svg>
+              <span class="sr-only">Error icon</span>
+            </div>
+            <div id="errorcontent" class="ms-3 text-sm font-normal">
+              Error in Creating Admin.
+            </div>
+            <button type="button"
+              class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+              data-dismiss-target="#toast-danger" aria-label="Close">
+              <span class="sr-only">Close</span>
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <h4 class="text-center text-blue-700 font-bold text-2xl">
+          Manage Products
+        </h4>
+        <div style="margin-top: 20px" class="text-center">
+          <button type="submit" data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+            class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+            Create Product
+          </button>
+        </div>
+        <div id="crud-modal" tabindex="-1" aria-hidden="true"
+          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative p-4 w-full max-w-md max-h-full">
+          
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+             
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                  Create New Product
+                </h3>
+                <button type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-toggle="crud-modal">
+                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+             
+              <form class="p-4 md:p-5" onsubmit="addProduct(event)" method="post">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                  <div class="col-span-2">
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                    <input type="text" name="name" id="name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Type product name" required="" />
+                  </div>
+                  <div class="col-span-2 sm:col-span-1">
+                    <label for="price"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                    <input type="number" name="price" id="price"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="$2999" required="" />
+                  </div>
+                  <div class="col-span-2 sm:col-span-1">
+                    <label for="category"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                    <select id="category"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      <option selected="">Select category</option>
+                      <option value="TV">TShirt</option>
+                      <option value="PC">Trouser</option>
+                      <option value="GA">Jeans</option>
+                      <option value="PH">Others</option>
+                    </select>
+                  </div>
+                  <div class="col-span-2">
+                    <label for="images" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      Images
+                    </label>
+                    <input type="file" name="images" id="images"
+                      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      multiple />
+                    <div id="image-preview" class="mt-2 space-y-2"></div>
+                  </div>
+
+                 
+    <div class="col-span-2">
+      <label for="color" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        Color
+      </label>
+      <input type="text" name="color" id="color"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Enter color(s) separated by commas" />
+    </div>
+    <div class="col-span-2">
+      <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
+        Description</label>
+      <textarea id="description" rows="4"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Write product description here"></textarea>
+    </div>
+  </div>
+  <button type="submit"
+    class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd"
+        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd">
+      </path>
+    </svg>
+    Add new product
+  </button>
+  </form>
+  </div>
+  </div>
+  </div>
+  </section>
+  <section id="displayadmin" style="margin-top: 30px">
+    <h4 class="text-center text-blue-700 font-bold text-2xl">
+      Display Products
+    </h4>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg" style="margin-top: 20px">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3">Main Image</th>
+            <th scope="col" class="px-6 py-3">Product Name</th>
+            <th scope="col" class="px-6 py-3">Colors</th>
+            <th scope="col" class="px-6 py-3">Category</th>
+            <th scope="col" class="px-6 py-3">Description</th>
+            <th scope="col" class="px-6 py-3">Action</th>
+          </tr>
+        </thead>
+        <tbody id="addrow"></tbody>
+      </table>
+    </div>
+  </section> -->
+    </div>
+  </div>
+
+
+
+
+
+  <div class="hidden fixed right-0 top-0 z-50 flex items-center justify-center h-full w-full" id="add-product-modal"
+    style="background-color:rgb(75, 85, 95,0.5);">
+    <div class="h-[90vh] w-full max-w-2xl px-4">
+      <!-- Modal content -->
+      <div class="flex flex-col justify-between rounded-lg bg-white shadow dark:bg-gray-800" style="height: 90vh;">
+        <!-- Modal header -->
+        <div class="flex items-start justify-between rounded-t border-b p-5 dark:border-gray-700">
+          <h3 class="text-xl font-semibold dark:text-white">Add New Product</h3>
+          <button type="button" id="closeProductButton"
+            class="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-700 dark:hover:text-white">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+
+
+
+        <!-- Modal body -->
+        <div class="p-6 h-full overflow-y-auto ">
+
+          <form action="#">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="product-title" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Title</label>
+                <input type="text" name="product-title" id="product-title"
+                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="Title" required="" />
+              </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="product-price" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Price</label>
+                <input type="number" name="product-price" id="product-price"
+                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  min="0" placeholder="Enter Price in eg. 7500Rs " required />
+              </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="product-disc%"
+                  class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Discount%</label>
+                <input type="number" name="product-disc%" id="product-disc%"
+                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="Enter Discounted Percentage " />
+              </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="product-disc-price" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Discounted Price
+                </label>
+                <input type="text" name="product-disc-price" id="product-disc-price"
+                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="Disount Pricee" readonly />
+              </div>
+              <div class="col-span-6">
+                <label for="product-discription" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Meta Discription
+                </label>
+                <textarea id="product-discription" rows="4" maxlength="249"
+                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="250 characters Only"></textarea>
+              </div>
+            </div>
+            <div class="flex my-4 space-x-5 image-container" id="imageContainer">
+              <!-- Images will be displayed here -->
+            </div>
+            <div class="flex justify-center items-center w-full">
+              <label
+                class="flex flex-col w-full h-32 rounded border-2 border-gray-300 border-dashed cursor-pointer hover:bg-gray-50">
+                <div class="flex flex-col justify-center items-center pt-5 pb-6">
+                  <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                  </svg>
+                  <p class="py-1 text-sm text-gray-600">Upload a file or drag and drop</p>
+                  <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                </div>
+                <input type="file" class="hidden" id="fileInput" multiple>
+              </label>
+            </div>
+          </form>
+
+          <h4 class="my-4 text-xl font-bold mb-4 text-gray-900 dark:text-white">Enter Product Stock</h4>
+          <form>
+            <div class="grid grid-cols-6 gap-6">
+
+
+              <!-- Input for color name -->
+              <div class="col-span-3">
+                <label for="colorName" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Color
+                  Name:</label>
+                <input type="text" id="colorName" name="colorName"
+                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  required>
+              </div>
+
+              <!-- Input for selecting color through a color palette -->
+              <div class=" col-span-3">
+                <label for="color" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Select
+                  Color:</label>
+                <input type="color" id="color" name="color"
+                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block  rounded-lg border border-gray-300 bg-gray-50 h-10 text-gray-900 shadow-sm  dark:border-gray-600 dark:bg-gray-700 dark:text-white  dark:placeholder-gray-400"
+                  required>
+              </div>
+
+              <!-- Input for quantity -->
+              <div class=" col-span-6 sm:col-span-3">
+                <label for="quantity"
+                  class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Stock:</label>
+                <input type="number" id="quantity" name="quantity" min="1"
+                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  required>
+              </div>
+              <!-- Input for selecting size -->
+              <div class="col-span-6 sm:col-span-3">
+                <label for="size" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Select
+                  Size:</label>
+                <select id="size" name="size"
+                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  required>
+                  <option value="small">Small</option>
+                  <option value="medium">Medium</option>
+                  <option value="large">Large</option>
+                </select>
+              </div>
+            </div>
+            <!-- Button to add this entry -->
+            <button type="button" onclick="addEntry()"
+              class="my-4 bg-blue-500 text-white py-2 px-4 rounded">Add</button>
+
+            <!-- Display entries in a table format -->
+            <table id="entries" class="w-full mt-4 overflow-x-auto pb-6">
+              <thead>
+                <tr class="bg-gray-100 dark:bg-gray-700">
+                  <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Quantity
+                  </th>
+                  <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Size</th>
+                  <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Color</th>
+                  <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Entries will be displayed here -->
+              </tbody>
+            </table>
+
+            <!-- Error message display -->
+            <p id="errorMessage" class="text-red-500 mt-2"></p>
+
+            <!-- Modal footer -->
+            <div class="items-center rounded-b border-t border-gray-200 pt-6 dark:border-gray-700 justify-evenly">
+              <button
+                class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
+                type="submit">Add user</button>
+            </div>
+          </form>
+
+        </div>
       </div>
     </div>
+
+
+
+
+    <script>
+      // Function to add a new entry and update the display
+      function addEntry() {
+        const colorName = document.getElementById('colorName').value;
+        const color = document.getElementById('color').value;
+        const quantity = document.getElementById('quantity').value;
+        const size = document.getElementById('size').value;
+
+        // Check if input fields are not empty
+        if (!colorName || !color || !quantity || !size) {
+          document.getElementById('errorMessage').innerText = "Please fill in all fields.";
+          return;
+        }
+
+        // Check if quantity is a positive integer
+        if (isNaN(quantity) || parseInt(quantity) <= 0 || !Number.isInteger(parseFloat(quantity))) {
+          document.getElementById('errorMessage').innerText = "Please enter a valid quantity.";
+          return;
+        }
+
+        // Check if the combination of color and size is not duplicated
+        const existingEntries = Array.from(document.querySelectorAll('#entries tbody tr')).map(row => ({
+          color: row.cells[2].dataset.color,
+          size: row.cells[1].innerText
+        }));
+
+        if (existingEntries.some(entry => entry.color === color && entry.size === size)) {
+          document.getElementById('errorMessage').innerText = "Combination of color and size must not be duplicated.";
+          return;
+        }
+
+        // Clear error message
+        document.getElementById('errorMessage').innerText = "";
+
+        // Update the table
+        const entryTableBody = document.querySelector('#entries tbody');
+        const entryRow = document.createElement('tr');
+        entryRow.innerHTML = `
+                <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">${quantity}</td>
+                <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">${size}</td>
+                <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-5" data-color="${color}">${colorName}
+                   <span class="inline-block w-4 h-4 rounded-full" style="background-color: ${color};"></span>
+                  </td>
+                <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white"><button type="button" onclick="removeEntry(this)" class="text-red-500">Remove</button></td>
+            `;
+        entryTableBody.appendChild(entryRow);
+      }
+
+      // Function to remove the corresponding form entry
+      function removeEntry(button) {
+        button.closest('tr').remove();
+      }
+
+      // Get references to the button, the two SVG icons, and the body element
+      const themeToggle = document.getElementById('theme-toggle');
+      const darkIcon = document.getElementById('theme-toggle-dark-icon');
+      const lightIcon = document.getElementById('theme-toggle-light-icon');
+      const body = document.body;
+
+      // Add click event listener to the button
+      themeToggle.addEventListener('click', function () {
+        // Toggle the visibility of the SVG icons
+        darkIcon.classList.toggle('hidden');
+        lightIcon.classList.toggle('hidden');
+
+        // Toggle the dark class on the body
+        body.classList.toggle('dark');
+      });
+
+
+      const createProductButton = document.getElementById('createProductButton');
+      const closeProductButton = document.getElementById('closeProductButton');
+
+      const addProductModal = document.getElementById('add-product-modal');
+
+      // Add click event listener to the button
+      createProductButton.addEventListener('click', function () {
+        // Toggle the "hidden" class on the modal
+        addProductModal.classList.remove('hidden');
+      });
+      closeProductButton.addEventListener('click', function () {
+        // Toggle the "hidden" class on the modal
+        addProductModal.classList.add('hidden');
+      });
+
+      const imageContainer = document.getElementById('imageContainer');
+      const fileInput = document.getElementById('fileInput');
+
+      fileInput.addEventListener('change', handleFileUpload);
+
+      function handleFileUpload(event) {
+        const files = event.target.files;
+
+        for (const file of files) {
+          // Check if the file is an image
+          if (isImage(file)) {
+            // Display the image in the image container in the specified format
+            displayImage(file);
+          } else {
+            alert('Please upload a valid image file.');
+          }
+        }
+      }
+
+      function isImage(file) {
+        const acceptedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        return file && acceptedImageTypes.includes(file.type);
+      }
+
+      function displayImage(file) {
+        const imageUrl = URL.createObjectURL(file);
+
+        const imageElement = document.createElement('div');
+        imageElement.innerHTML = `
+        <div class="">
+          <img src="${imageUrl}" class="h-24 w-24 bg-transparent" alt="Uploaded Image">
+          <button class="delete-button cursor-pointer">
+            <svg class="-mt-5 w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      `;
+
+        // Add an event listener to the delete button
+        const deleteButton = imageElement.querySelector('.delete-button');
+        deleteButton.addEventListener('click', () => {
+          // Remove the image element when the delete button is clicked
+          imageContainer.removeChild(imageElement);
+        });
+
+        imageContainer.appendChild(imageElement);
+      }
+
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script src="../node_modules/axios/dist/axios.min.js"></script>
     <script src="../js/ProductPage.js"></script>
-  </body>
+</body>
+
 </html>
