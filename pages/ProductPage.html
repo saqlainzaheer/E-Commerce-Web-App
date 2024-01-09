@@ -816,12 +816,12 @@
                 </label>
               </div>
 
-              <button id="productnextbtn"
-                class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
-                type="btn">Next
-              </button>
 
             </form>
+            <button id="productnextbtn"
+              class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
+              type="btn">Next
+            </button>
 
           </div>
 
@@ -857,14 +857,19 @@
 
                 <!-- Display color input fields in a table format -->
                 <div id="colorTable" class="mt-4">
-                  <table class="w-full">
-                    <thead>
+                  <table class="w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600  ">
+                    <thead class="bg-gray-100 dark:bg-gray-700">
                       <tr>
-                        <th class="border px-4 py-2">Color Name</th>
-                        <th class="border px-4 py-2">Small</th>
-                        <th class="border px-4 py-2">Medium</th>
-                        <th class="border px-4 py-2">Large</th>
-                        <th class="border px-4 py-2">Action</th>
+                        <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Color
+                          Name</th>
+                        <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Small
+                        </th>
+                        <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Medium
+                        </th>
+                        <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Large
+                        </th>
+                        <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Action
+                        </th>
                       </tr>
                     </thead>
                     <tbody></tbody>
@@ -900,7 +905,7 @@
     // Function to add product
     const formData = new FormData();
 
-    const productData = {
+    let productData = {
 
       category: []
     }
@@ -929,8 +934,8 @@
 
     });
     productsavebtn.addEventListener("click", function () {
-      saveproduct();
       ss();
+      saveproduct();
     })
 
     const getproduct = function () {
@@ -965,10 +970,38 @@
       axios.post('http://localhost:5000/product', formData)
         .then(response => {
           // Handle success, if needed
-          console.log(response.data);
+          console.log(response.data.productId);
+          productData = { ...productData, productid: response.data.productId }
+
           alert(response.data.message);
 
+
         })
+        .catch(error => {
+          // Handle error, if needed
+          console.error(error);
+        });
+
+      // productData = {
+      //   category: [
+      //     {
+      //       colorName: "green",
+      //       color: "#d81313",
+      //       small: 2,
+      //       medium: 2,
+      //       large: 3
+      //     }
+
+      //   ]
+      // }
+
+      axios.post('http://localhost:5000/categories', productData
+      ).then(response => {
+        // Handle success, if needed
+        console.log(response);
+        // alert(response.data.message);
+
+      })
         .catch(error => {
           // Handle error, if needed
           console.error(error);
@@ -976,11 +1009,25 @@
       //inser catagory data 
 
 
+      // axios.post('http://localhost:5000/categories', productData)
+      //   .then(response => {
+      //     // Handle success, if needed
+      //     console.log(response.data);
+      //     alert(response.data.message);
 
-      axios.post()
+      //   })
+      //   .catch(error => {
+      //     // Handle error, if needed
+      //     console.error(error);
+      //   });
+
+
+
+
 
 
     }
+
     // function addProduct() {
     //   // Get form elements
     //   const title = document.getElementById('product-title').value;
@@ -1075,19 +1122,15 @@
     // Function to push data into the global object
     function ss() {
       // Clear error message
-
       document.getElementById('errorMessage').innerText = "";
 
       // Get the color table data
-      const color = document.querySelector("color");
       const colorTableBody = document.getElementById('colorTable').querySelector('tbody');
       const colorRows = Array.from(colorTableBody.getElementsByTagName('tr'));
 
       // Loop through each color row and extract data
       colorRows.forEach(row => {
         const colorName = row.cells[0].innerText;
-        const color = row.cells[0].dataset.color;
-
         const sizeSmall = row.querySelector('input[name="sizeSmall"]').value;
         const sizeMedium = row.querySelector('input[name="sizeMedium"]').value;
         const sizeLarge = row.querySelector('input[name="sizeLarge"]').value;
@@ -1099,11 +1142,12 @@
         }
 
         // Check if the color already exists in the global object
-        const existingColorIndex = productData.category.findIndex(entry => Object.keys(entry)[0].toLowerCase() === colorName.toLowerCase());
+        const existingColorIndex = productData.category.findIndex(entry => entry.colorName.toLowerCase() === colorName.toLowerCase());
         if (existingColorIndex !== -1) {
           // Update existing color data
-          productData.category[existingColorIndex][colorName.toLowerCase()] = {
-            color: color,
+          productData.category[existingColorIndex] = {
+            colorName: colorName,
+            color: document.getElementById('color').value,
             small: parseInt(sizeSmall, 10),
             medium: parseInt(sizeMedium, 10),
             large: parseInt(sizeLarge, 10)
@@ -1111,12 +1155,11 @@
         } else {
           // Add new color data
           productData.category.push({
-            [colorName.toLowerCase()]: {
-              color: color,
-              small: parseInt(sizeSmall, 10),
-              medium: parseInt(sizeMedium, 10),
-              large: parseInt(sizeLarge, 10)
-            }
+            colorName: colorName,
+            color: document.getElementById('color').value,
+            small: parseInt(sizeSmall, 10),
+            medium: parseInt(sizeMedium, 10),
+            large: parseInt(sizeLarge, 10)
           });
         }
       });
