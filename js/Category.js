@@ -1,5 +1,7 @@
 "use strict";
-import "../style.css";
+
+import { check } from "prettier";
+import "../css/Category.css";
 import { renderStars } from "./functions";
 
 //navbar js
@@ -26,12 +28,13 @@ document.querySelectorAll(".link").forEach((link) => {
 let topSellingsData = [
   {
     id: 1,
-    image: "/image1.png",
+    image: ["/image1.png","/image1.png"],
     title: "T-SHIRT WITH TAPE DETAILS",
     rating: "3",
     realPrice: "$160",
     discountPrice: "null",
     discount: "null",
+    catagory:[{red:{small:4,medium:2,large:5 },  green:{small:5,medium: 2,large:0}}]
   },
   {
     id: 2,
@@ -133,7 +136,7 @@ function renderData(data) {
         <!-- Product Links -->
         <ul class="product-links">
         <li><a href="#"><i class="far fa-heart"></i></a></li>
-        <li><a href="#"> <i class="fa-regular fa-eye"></i></a></li>
+        <li><a href="#"> <i class="quickview fa-regular fa-eye"></i></a></li>
         <li>
         <button ">
         <a href="#"><i class="addtocartbtn cart__btn fa fa-shopping-cart" data-key='${cartdata}'></i></a>
@@ -248,7 +251,7 @@ renderSizeFilter(filterData);
 ///cart open
 
 const cartBtn = document?.querySelector(".cartbtn");
-const Cartmodal = document?.querySelector("#modal");
+const Cartmodal = document?.querySelector("#cartmodal");
 const cartCloseBtn = document?.querySelector("#cart__close__btn");
 cartBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -263,28 +266,18 @@ cartCloseBtn.addEventListener("click", function (e) {
   Cartmodal.classList.add("hidden");
 });
 
-// Push to Cart Logic
-
-// const cartData = [];
-
-// const shopitembox = document?.querySelector("#shopitems");
-
-// shopitembox.addEventListener("click", function (e) {
-//   e.preventDefault();
-
-//   const cartBtn = e.target.classList.contains("cart__btn");
-//   if (!cartBtn) return;
-//   const cartitem = JSON.parse(e.target.dataset.key);
-//   cartData.push(cartitem);
-//   console.log(cartData);
-
-//   localStorage.setItem("cartData", JSON.stringify(cartData));
-// });
+//view box open close
 
 const shopitembox = document?.querySelector("#shopitems");
-
+const productViewCloseBtn = document?.querySelector("#productviewclosebtn");
+const productViewModal = document?.querySelector("#productviewmodal");
 shopitembox.addEventListener("click", function (e) {
   e.preventDefault();
+  const viewBtn = e.target.classList.contains("quickview");
+  //  handl product view click
+  if (viewBtn) {
+    productViewModal.classList.remove("hidden");
+  }
 
   const cartBtn = e.target.classList.contains("cart__btn");
   if (!cartBtn) return;
@@ -302,6 +295,11 @@ shopitembox.addEventListener("click", function (e) {
   } else {
     alert("Item is already in the cart");
   }
+});
+
+productViewCloseBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  productViewModal.classList.add("hidden");
 });
 
 ///reander cart data
@@ -365,3 +363,6 @@ function renderCartData(data) {
     container.innerHTML += cardHtml;
   });
 }
+
+
+
