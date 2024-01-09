@@ -755,142 +755,164 @@
 
         <!-- Modal body -->
         <div class="p-6 h-full overflow-y-auto ">
-          <div id="productmainform" class="">
+          <div id="productmainform" class="h-full">
+            <div class="flex flex-col justify-between">
 
-            <form action="#">
-              <div class="grid grid-cols-6 gap-6">
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="product-title" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                    Title</label>
-                  <input type="text" name="product-title" id="product-title"
-                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                    placeholder="Title" required="" />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="product-price" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                    Price</label>
-                  <input type="number" name="product-price" id="product-price"
-                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                    min="0" placeholder="Enter Price in eg. 7500Rs " required />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="product-disc%"
-                    class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Discount%</label>
-                  <input type="number" name="product-disc%" id="product-disc%"
-                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                    placeholder="Enter Discounted Percentage " />
-                </div>
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="product-disc-price" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                    Discounted Price
-                  </label>
-                  <input type="text" name="product-disc-price" id="product-disc-price"
-                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                    placeholder="Disount Pricee" readonly />
-                </div>
-                <div class="col-span-6">
-                  <label for="product-discription" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                    Meta Discription
-                  </label>
-                  <textarea id="product-discription" rows="4" maxlength="249"
-                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                    placeholder="250 characters Only"></textarea>
-                </div>
-              </div>
-              <div class="flex my-4 space-x-5 image-container" id="imageContainer">
-                <!-- Images will be displayed here -->
-              </div>
-              <div class="flex justify-center items-center w-full">
-                <label
-                  class="flex flex-col w-full h-32 rounded border-2 border-gray-300 border-dashed cursor-pointer hover:bg-gray-50">
-                  <div class="flex flex-col justify-center items-center pt-5 pb-6">
-                    <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
-                    </svg>
-                    <p class="py-1 text-sm text-gray-600">Upload a file or drag and drop</p>
-                    <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+              <form action="#">
+                <div class="grid grid-cols-6 gap-6">
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="product-title" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                      Title</label>
+                    <input type="text" name="product-title" id="product-title"
+                      class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                      placeholder="Title" required="" />
                   </div>
-                  <input type="file" class="hidden" id="fileInput" multiple>
-                </label>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="product-price" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                      Price</label>
+                    <input type="number" name="product-price" id="product-price"
+                      class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                      min="0" placeholder="Enter Price in eg. 7500Rs " required />
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="product-disc%"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Discount%</label>
+                    <input type="number" name="product-disc%" id="product-disc%"
+                      class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                      placeholder="Enter Discounted Percentage " />
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="product-disc-price"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                      Discounted Price
+                    </label>
+                    <input type="text" name="product-disc-price" id="product-disc-price"
+                      class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                      placeholder="Disount Pricee" readonly />
+                  </div>
+                  <div class="col-span-6">
+                    <label for="product-discription"
+                      class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                      Meta Discription
+                    </label>
+                    <textarea id="product-discription" rows="4" maxlength="249"
+                      class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                      placeholder="250 characters Only"></textarea>
+                  </div>
+                </div>
+                <div class="flex my-4 space-x-5 image-container" id="imageContainer">
+                  <!-- Images will be displayed here -->
+                </div>
+                <div class="flex justify-center items-center w-full">
+                  <label
+                    class="flex flex-col w-full h-32 rounded border-2 border-gray-300 border-dashed cursor-pointer hover:bg-gray-50">
+                    <div class="flex flex-col justify-center items-center pt-5 pb-6">
+                      <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                      </svg>
+                      <p class="py-1 text-sm text-gray-600">Upload a file or drag and drop</p>
+                      <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                    </div>
+                    <input type="file" class="hidden" id="fileInput" multiple>
+                  </label>
+                </div>
+
+
+              </form>
+              <div class="flex justify-end">
+
+                <button id="productnextbtn"
+                  class="mt-4 bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
+                  type="btn">Next
+                </button>
               </div>
-
-
-            </form>
-            <button id="productnextbtn"
-              class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
-              type="btn">Next
-            </button>
+            </div>
 
           </div>
 
 
 
-          <div id="catagorymainform" class="hidden">
-            <form action="" onsubmit="event.preventDefault(); ">
-              <div>
+          <div id="catagorymainform" class="hidden  h-full">
+            <div class="flex flex-col justify-between h-full">
 
-                <h1 class="text-xl font-semibold dark:text-white">Product Selection</h1>
 
-                <!-- Input for color name -->
-                <div class="mb-4">
-                  <label for="colorName" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Color
-                    Name:</label>
-                  <input type="text" id="colorName" name="colorName"
-                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                    required>
+              <form action="" onsubmit="event.preventDefault(); ">
+                <div class="grid grid-cols-6 gap-6">
+
+
+                  <!-- Input for color name -->
+                  <div class="col-span-3">
+                    <label for="colorName" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Color
+                      Name:</label>
+                    <input type="text" id="colorName" name="colorName"
+                      class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                      required>
+                  </div>
+
+                  <!-- Input for selecting color through a color palette -->
+                  <div class="col-span-3">
+                    <label for="color" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Select
+                      Color:</label>
+                    <input type="color" id="color" name="color"
+                      class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-16 rounded-lg border  bg-gray-50 h-12 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                      required>
+                  </div>
+                  <div class="col-span-6">
+
+                    <!-- Button to add color input fields in a table -->
+                    <button type="button" onclick="addColorTable()" class="bg-blue-500 text-white py-2 px-4 rounded">
+                      Add Color +
+                    </button>
+
+                  </div>
+                  <!-- Display color input fields in a table format -->
+                  <div id="colorTable" class="col-span-6">
+                    <table class="w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600  ">
+                      <thead class="bg-gray-100 dark:bg-gray-700">
+                        <tr>
+                          <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                            Color
+                          </th>
+                          <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Small
+                          </th>
+                          <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                            Medium
+                          </th>
+                          <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                            Large
+                          </th>
+                          <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                            Action
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- data show here -->
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!-- Error message display -->
+                  <p id="errorMessage" class="text-red-500 mt-2"></p>
+
+
                 </div>
+              </form>
+              <div class=" flex items-center justify-between">
 
-                <!-- Input for selecting color through a color palette -->
-                <div class="mb-4">
-                  <label for="color" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Select
-                    Color:</label>
-                  <input type="color" id="color" name="color"
-                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                    required>
-                </div>
-
-                <!-- Button to add color input fields in a table -->
-                <button type="button" onclick="addColorTable()" class="bg-blue-500 text-white py-2 px-4 rounded">Add
-                  Table</button>
-
-                <!-- Display color input fields in a table format -->
-                <div id="colorTable" class="mt-4">
-                  <table class="w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600  ">
-                    <thead class="bg-gray-100 dark:bg-gray-700">
-                      <tr>
-                        <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Color
-                          Name</th>
-                        <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Small
-                        </th>
-                        <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Medium
-                        </th>
-                        <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Large
-                        </th>
-                        <th class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">Action
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody></tbody>
-                  </table>
-                </div>
-
-                <!-- Error message display -->
-                <p id="errorMessage" class="text-red-500 mt-2"></p>
-
-
+                <button id="productbackbtn"
+                  class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
+                  type="btn">Back</button>
+                <button id="productsavebtn"
+                  class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
+                  type="btn">Save</button>
               </div>
 
-              <button id="productbackbtn"
-                class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
-                type="btn">Back</button>
-              <button id="productsavebtn"
-                class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
-                type="btn">Save</button>
-            </form>
-          </div>
 
+            </div>
+          </div>
 
         </div>
       </div>
@@ -921,10 +943,13 @@
 
 
     producrnextbtn.addEventListener("click", function () {
+      const productvalidate = getproduct();
+      if (!productvalidate) {
+        return;
+      }
 
       productmainform.classList.add("hidden");
       catagorymainform.classList.remove("hidden");
-      getproduct();
 
     });
 
@@ -939,11 +964,54 @@
     })
 
     const getproduct = function () {
-      const title = document.getElementById('product-title')?.value;
-      const price = document.getElementById('product-price')?.value;
-      const discountPercentage = document.getElementById('product-disc%')?.value;
-      const discountedPrice = document.getElementById('product-disc-price')?.value;
-      const metaDescription = document.getElementById('product-discription')?.value;
+
+      const titleInput = document.getElementById('product-title');
+      const priceInput = document.getElementById('product-price');
+      const discountPercentageInput = document.getElementById('product-disc%');
+      const discountedPriceInput = document.getElementById('product-disc-price');
+      const metaDescriptionInput = document.getElementById('product-description');
+
+      // Validate title
+      const title = titleInput.value.trim();
+      if (title === '') {
+        console.error('Title cannot be empty.');
+        // Handle the error, e.g., display a message to the user
+        return false; // Validation failed
+      }
+
+      // Validate price
+      const price = parseFloat(priceInput.value);
+      if (isNaN(price)) {
+        console.error('Invalid price. Please enter a valid number.');
+        // Handle the error, e.g., display a message to the user
+        return false; // Validation failed
+      }
+
+      // Validate discountPercentage
+      const discountPercentage = parseFloat(discountPercentageInput?.value);
+      if (!isNaN(discountPercentage) && discountPercentage >= 1 && discountPercentage <= 99) {
+        // Calculate discounted price if discount is valid
+        const discountedPrice = price - (price * (discountPercentage / 100));
+        discountedPriceInput.value = discountedPrice.toFixed(2); // Set the value in the corresponding input field
+      } else if (discountPercentageInput.value.trim() !== '') {
+        console.error('Invalid discount percentage. Please enter a number between 1 and 99.');
+        // Handle the error, e.g., display a message to the user
+        return false; // Validation failed
+      }
+
+      // Validate metaDescription
+      const metaDescription = metaDescriptionInput?.value?.trim();
+      if (metaDescription === '') {
+        console.error('Meta description cannot be empty.');
+        // Handle the error, e.g., display a message to the user
+        return false; // Validation failed
+      }
+
+      // const title = document.getElementById('product-title')?.value;
+      // const price = document.getElementById('product-price')?.value;
+      // const discountPercentage = document.getElementById('product-disc%')?.value;
+      // const discountedPrice = document.getElementById('product-disc-price')?.value;
+      // const metaDescription = document.getElementById('product-discription')?.value;
 
 
       formData.append('title', title);
@@ -981,20 +1049,7 @@
           // Handle error, if needed
           console.error(error);
         });
-
-      // productData = {
-      //   category: [
-      //     {
-      //       colorName: "green",
-      //       color: "#d81313",
-      //       small: 2,
-      //       medium: 2,
-      //       large: 3
-      //     }
-
-      //   ]
-      // }
-
+      //insert in catagories
       axios.post('http://localhost:5000/categories', productData
       ).then(response => {
         // Handle success, if needed
@@ -1101,10 +1156,10 @@
       const colorTableBody = colorTableDiv.querySelector('tbody');
       const colorTableRow = document.createElement('tr');
       colorTableRow.innerHTML = `
-                <td class="border px-4 py-2" data-color='${color}'>${colorName} </td>
-                <td class="border px-4 py-2"><input type="text" name="sizeSmall" class="w-full py-2 px-3 border border-gray-300 rounded" required></td>
-                <td class="border px-4 py-2"><input type="text" name="sizeMedium" class="w-full py-2 px-3 border border-gray-300 rounded" required></td>
-                <td class="border px-4 py-2"><input type="text" name="sizeLarge" class="w-full py-2 px-3 border border-gray-300 rounded" required></td>
+                <td class="border p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white" data-color='${color}'>${colorName} </td>
+                <td class="border px-4 py-2"><input type="text" name="sizeSmall" class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400" required></td>
+                <td class="border px-4 py-2"><input type="text" name="sizeMedium" class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400" required></td>
+                <td class="border px-4 py-2"><input type="text" name="sizeLarge" class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400" required></td>
                 <td class="border px-4 py-2"><button type="button" onclick="removeColorRow(this)" class="text-red-500">Remove</button></td>
             `;
       colorTableBody.appendChild(colorTableRow);
