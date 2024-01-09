@@ -943,14 +943,14 @@
 
 
     producrnextbtn.addEventListener("click", function () {
-      const productvalidate = getproduct();
-      if (!productvalidate) {
-        return;
-      }
+      // const productvalidate = getproduct();
+      // if (!productvalidate) {
+      //   return;
+      // }
 
       productmainform.classList.add("hidden");
       catagorymainform.classList.remove("hidden");
-
+      getproduct();
     });
 
     productbackbtn.addEventListener("click", function () {
@@ -958,10 +958,11 @@
       catagorymainform.classList.add("hidden");
 
     });
-    productsavebtn.addEventListener("click", function () {
-      ss();
+    productsavebtn.addEventListener("click", async function () {
+
+      await ss();
       saveproduct();
-    })
+    });
 
     const getproduct = function () {
 
@@ -989,9 +990,10 @@
 
       // Validate discountPercentage
       const discountPercentage = parseFloat(discountPercentageInput?.value);
+      let discountedPrice;
       if (!isNaN(discountPercentage) && discountPercentage >= 1 && discountPercentage <= 99) {
         // Calculate discounted price if discount is valid
-        const discountedPrice = price - (price * (discountPercentage / 100));
+        discountedPrice = price - (price * (discountPercentage / 100));
         discountedPriceInput.value = discountedPrice.toFixed(2); // Set the value in the corresponding input field
       } else if (discountPercentageInput.value.trim() !== '') {
         console.error('Invalid discount percentage. Please enter a number between 1 and 99.');
@@ -1028,7 +1030,7 @@
         formData.append('images', file);
       }
       console.log(formData);
-
+      return true;
     }
 
     function saveproduct() {
@@ -1042,25 +1044,27 @@
           productData = { ...productData, productid: response.data.productId }
 
           alert(response.data.message);
+          console.log(productData);
+          axios.post('http://localhost:5000/categories', productData
+          ).then(response => {
+            // Handle success, if needed
+            console.log(response);
+            // alert(response.data.message);
 
+          })
+            .catch(error => {
+              // Handle error, if needed
+              console.error(error);
+            });
 
         })
         .catch(error => {
           // Handle error, if needed
           console.error(error);
         });
-      //insert in catagories
-      axios.post('http://localhost:5000/categories', productData
-      ).then(response => {
-        // Handle success, if needed
-        console.log(response);
-        // alert(response.data.message);
 
-      })
-        .catch(error => {
-          // Handle error, if needed
-          console.error(error);
-        });
+      //insert in catagories
+
       //inser catagory data 
 
 
