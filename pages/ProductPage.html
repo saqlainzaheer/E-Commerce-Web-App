@@ -755,291 +755,434 @@
 
         <!-- Modal body -->
         <div class="p-6 h-full overflow-y-auto ">
+          <div id="productmainform" class="">
 
-          <form action="#">
-            <div class="grid grid-cols-6 gap-6">
-              <div class="col-span-6 sm:col-span-3">
-                <label for="product-title" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                  Title</label>
-                <input type="text" name="product-title" id="product-title"
-                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                  placeholder="Title" required="" />
-              </div>
-              <div class="col-span-6 sm:col-span-3">
-                <label for="product-price" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                  Price</label>
-                <input type="number" name="product-price" id="product-price"
-                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                  min="0" placeholder="Enter Price in eg. 7500Rs " required />
-              </div>
-              <div class="col-span-6 sm:col-span-3">
-                <label for="product-disc%"
-                  class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Discount%</label>
-                <input type="number" name="product-disc%" id="product-disc%"
-                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                  placeholder="Enter Discounted Percentage " />
-              </div>
-              <div class="col-span-6 sm:col-span-3">
-                <label for="product-disc-price" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                  Discounted Price
-                </label>
-                <input type="text" name="product-disc-price" id="product-disc-price"
-                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                  placeholder="Disount Pricee" readonly />
-              </div>
-              <div class="col-span-6">
-                <label for="product-discription" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                  Meta Discription
-                </label>
-                <textarea id="product-discription" rows="4" maxlength="249"
-                  class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                  placeholder="250 characters Only"></textarea>
-              </div>
-            </div>
-            <div class="flex my-4 space-x-5 image-container" id="imageContainer">
-              <!-- Images will be displayed here -->
-            </div>
-            <div class="flex justify-center items-center w-full">
-              <label
-                class="flex flex-col w-full h-32 rounded border-2 border-gray-300 border-dashed cursor-pointer hover:bg-gray-50">
-                <div class="flex flex-col justify-center items-center pt-5 pb-6">
-                  <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
-                  </svg>
-                  <p class="py-1 text-sm text-gray-600">Upload a file or drag and drop</p>
-                  <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+            <form action="#">
+              <div class="grid grid-cols-6 gap-6">
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="product-title" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                    Title</label>
+                  <input type="text" name="product-title" id="product-title"
+                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                    placeholder="Title" required="" />
                 </div>
-                <input type="file" class="hidden" id="fileInput" multiple>
-              </label>
-            </div>
-          </form>
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="product-price" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                    Price</label>
+                  <input type="number" name="product-price" id="product-price"
+                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                    min="0" placeholder="Enter Price in eg. 7500Rs " required />
+                </div>
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="product-disc%"
+                    class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Discount%</label>
+                  <input type="number" name="product-disc%" id="product-disc%"
+                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                    placeholder="Enter Discounted Percentage " />
+                </div>
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="product-disc-price" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                    Discounted Price
+                  </label>
+                  <input type="text" name="product-disc-price" id="product-disc-price"
+                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                    placeholder="Disount Pricee" readonly />
+                </div>
+                <div class="col-span-6">
+                  <label for="product-discription" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                    Meta Discription
+                  </label>
+                  <textarea id="product-discription" rows="4" maxlength="249"
+                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                    placeholder="250 characters Only"></textarea>
+                </div>
+              </div>
+              <div class="flex my-4 space-x-5 image-container" id="imageContainer">
+                <!-- Images will be displayed here -->
+              </div>
+              <div class="flex justify-center items-center w-full">
+                <label
+                  class="flex flex-col w-full h-32 rounded border-2 border-gray-300 border-dashed cursor-pointer hover:bg-gray-50">
+                  <div class="flex flex-col justify-center items-center pt-5 pb-6">
+                    <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                    </svg>
+                    <p class="py-1 text-sm text-gray-600">Upload a file or drag and drop</p>
+                    <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                  </div>
+                  <input type="file" class="hidden" id="fileInput" multiple>
+                </label>
+              </div>
 
-          <div class="items-center rounded-b border-t border-gray-200 p-6 dark:border-gray-700">
-            <button
-              class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
-              type="submit">Add Product</button>
+              <button id="productnextbtn"
+                class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
+                type="btn">Next
+              </button>
+
+            </form>
+
           </div>
 
+
+
+          <div id="catagorymainform" class="hidden">
+            <form action="" onsubmit="event.preventDefault(); ">
+              <div>
+
+                <h1 class="text-xl font-semibold dark:text-white">Product Selection</h1>
+
+                <!-- Input for color name -->
+                <div class="mb-4">
+                  <label for="colorName" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Color
+                    Name:</label>
+                  <input type="text" id="colorName" name="colorName"
+                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                    required>
+                </div>
+
+                <!-- Input for selecting color through a color palette -->
+                <div class="mb-4">
+                  <label for="color" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Select
+                    Color:</label>
+                  <input type="color" id="color" name="color"
+                    class="focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                    required>
+                </div>
+
+                <!-- Button to add color input fields in a table -->
+                <button type="button" onclick="addColorTable()" class="bg-blue-500 text-white py-2 px-4 rounded">Add
+                  Table</button>
+
+                <!-- Display color input fields in a table format -->
+                <div id="colorTable" class="mt-4">
+                  <table class="w-full">
+                    <thead>
+                      <tr>
+                        <th class="border px-4 py-2">Color Name</th>
+                        <th class="border px-4 py-2">Small</th>
+                        <th class="border px-4 py-2">Medium</th>
+                        <th class="border px-4 py-2">Large</th>
+                        <th class="border px-4 py-2">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+
+                <!-- Error message display -->
+                <p id="errorMessage" class="text-red-500 mt-2"></p>
+
+
+              </div>
+
+              <button id="productbackbtn"
+                class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
+                type="btn">Back</button>
+              <button id="productsavebtn"
+                class="bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4"
+                type="btn">Save</button>
+            </form>
+          </div>
+
+
         </div>
-        <div>
-        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- Include Axios library -->
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-<script>
-  // Function to add product
-  function addProduct() {
-    // Get form elements
-    const title = document.getElementById('product-title').value;
-    const price = document.getElementById('product-price').value;
-    const discountPercentage = document.getElementById('product-disc%').value;
-    const discountedPrice = document.getElementById('product-disc-price').value;
-    const metaDescription = document.getElementById('product-discription').value;
+  <!-- Include Axios library -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    console.log(title,price,discountPercentage,discountedPrice,metaDescription);
-    // Create FormData object
+  <script>
+    // Function to add product
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('price', price);
-    formData.append('discountPercentage', discountPercentage);
-    formData.append('discountedPrice', discountedPrice);
-    formData.append('metaDescription', metaDescription);
 
-    // Fetch the file input
-    const fileInput = document.getElementById('fileInput');
-    
-    // Append each selected file to FormData
-    for (const file of fileInput.files) {
-      formData.append('images', file);
+    const productData = {
+
+      category: []
     }
-    // Send the data using Axios
-    axios.post('http://localhost:5000/product', formData)
-      .then(response => {
-        // Handle success, if needed
-        console.log(response.data);
-        alert(response.data.message);
 
-      })
-      .catch(error => {
-        // Handle error, if needed
-        console.error(error);
-      });
-  }
+    const productmainform = document.querySelector("#productmainform");
+    const catagorymainform = document.querySelector("#catagorymainform");
 
-  // Attach the function to the button click event
-  const addButton = document.querySelector('button[type="submit"]');
-  addButton.addEventListener('click', addProduct);
-</script>
+    const producrnextbtn = document.querySelector("#productnextbtn");
+    const productbackbtn = document.querySelector("#productbackbtn");
+    const productsavebtn = document.querySelector("#productsavebtn");
 
 
 
-        <script>
 
-          const productData = {
-            id: 1,
-            image: ["/image1.png", "/image1.png"],
-            title: "T-SHIRT WITH TAPE DETAILS",
-            rating: "3",
-            realPrice: "$160",
-            discountPrice: "null",
-            discount: "null",
-            category: []
-          }
+    producrnextbtn.addEventListener("click", function () {
+
+      productmainform.classList.add("hidden");
+      catagorymainform.classList.remove("hidden");
+      getproduct();
+
+    });
+
+    productbackbtn.addEventListener("click", function () {
+      productmainform.classList.remove("hidden");
+      catagorymainform.classList.add("hidden");
+
+    });
+    productsavebtn.addEventListener("click", function () {
+      saveproduct();
+      ss();
+    })
+
+    const getproduct = function () {
+      const title = document.getElementById('product-title')?.value;
+      const price = document.getElementById('product-price')?.value;
+      const discountPercentage = document.getElementById('product-disc%')?.value;
+      const discountedPrice = document.getElementById('product-disc-price')?.value;
+      const metaDescription = document.getElementById('product-discription')?.value;
+
+
+      formData.append('title', title);
+      formData.append('price', price);
+      formData.append('discountPercentage', discountPercentage);
+      formData.append('discountedPrice', discountedPrice);
+      formData.append('metaDescription', metaDescription);
+
+      // Fetch the file input
+      const fileInput = document.getElementById('fileInput');
+
+      // Append each selected file to FormData
+      for (const file of fileInput.files) {
+        formData.append('images', file);
+      }
+      console.log(formData);
+
+    }
+
+    function saveproduct() {
+
+
+      //first inser product data 
+      axios.post('http://localhost:5000/product', formData)
+        .then(response => {
+          // Handle success, if needed
+          console.log(response.data);
+          alert(response.data.message);
+
+        })
+        .catch(error => {
+          // Handle error, if needed
+          console.error(error);
+        });
+      //inser catagory data 
 
 
 
-          // Function to add color input fields in a table
-          function addColorTable() {
-            const colorName = document.getElementById('colorName').value;
-            const color = document.getElementById('color').value;
+      axios.post()
 
-            // Check if input fields are not empty
-            if (!colorName || !color) {
-              document.getElementById('errorMessage').innerText = "Please fill in all fields.";
-              return;
-            }
 
-            // Check if the color already exists in the table
-            const existingColors = Array.from(document.querySelectorAll('#colorTable tbody tr')).map(row => row.cells[0].innerText.toLowerCase());
-            if (existingColors.includes(colorName.toLowerCase())) {
-              document.getElementById('errorMessage').innerText = "Color already exists in the table.";
-              return;
-            }
+    }
+    // function addProduct() {
+    //   // Get form elements
+    //   const title = document.getElementById('product-title').value;
+    //   const price = document.getElementById('product-price').value;
+    //   const discountPercentage = document.getElementById('product-disc%').value;
+    //   const discountedPrice = document.getElementById('product-disc-price').value;
+    //   const metaDescription = document.getElementById('product-discription').value;
 
-            // Clear error message
-            document.getElementById('errorMessage').innerText = "";
+    //   console.log(title, price, discountPercentage, discountedPrice, metaDescription);
 
-            // Create input fields for the color in a table format
-            const colorTableDiv = document.getElementById('colorTable');
-            const colorTableBody = colorTableDiv.querySelector('tbody');
-            const colorTableRow = document.createElement('tr');
-            colorTableRow.innerHTML = `
-                <td class="border px-4 py-2">${colorName}</td>
+
+    //   // Create FormData object
+    //   const formData = new FormData();
+    //   formData.append('title', title);
+    //   formData.append('price', price);
+    //   formData.append('discountPercentage', discountPercentage);
+    //   formData.append('discountedPrice', discountedPrice);
+    //   formData.append('metaDescription', metaDescription);
+
+    //   // Fetch the file input
+    //   const fileInput = document.getElementById('fileInput');
+
+    //   // Append each selected file to FormData
+    //   for (const file of fileInput.files) {
+    //     formData.append('images', file);
+    //   }
+    //   // Send the data using Axios
+    //   axios.post('http://localhost:5000/product', formData)
+    //     .then(response => {
+    //       // Handle success, if needed
+    //       console.log(response.data);
+    //       alert(response.data.message);
+
+    //     })
+    //     .catch(error => {
+    //       // Handle error, if needed
+    //       console.error(error);
+    //     });
+    // }
+
+    // Attach the function to the button click event
+    // const addButton = document.querySelector('button[type="submit"]');
+    // addButton.addEventListener('click', addProduct);
+
+
+
+
+    // Function to add color input fields in a table
+    function addColorTable() {
+      const colorName = document.getElementById('colorName').value;
+      const color = document.getElementById('color').value;
+
+      // Check if input fields are not empty
+      if (!colorName || !color) {
+        document.getElementById('errorMessage').innerText = "Please fill in all fields.";
+        return;
+      }
+
+      // Check if the color already exists in the table
+      const existingColors = Array.from(document.querySelectorAll('#colorTable tbody tr')).map(row => row.cells[0].innerText.toLowerCase());
+      if (existingColors.includes(colorName.toLowerCase())) {
+        document.getElementById('errorMessage').innerText = "Color already exists in the table.";
+        return;
+      }
+
+      // Clear error message
+      document.getElementById('errorMessage').innerText = "";
+
+      // Create input fields for the color in a table format
+      const colorTableDiv = document.getElementById('colorTable');
+      const colorTableBody = colorTableDiv.querySelector('tbody');
+      const colorTableRow = document.createElement('tr');
+      colorTableRow.innerHTML = `
+                <td class="border px-4 py-2" data-color='${color}'>${colorName} </td>
                 <td class="border px-4 py-2"><input type="text" name="sizeSmall" class="w-full py-2 px-3 border border-gray-300 rounded" required></td>
                 <td class="border px-4 py-2"><input type="text" name="sizeMedium" class="w-full py-2 px-3 border border-gray-300 rounded" required></td>
                 <td class="border px-4 py-2"><input type="text" name="sizeLarge" class="w-full py-2 px-3 border border-gray-300 rounded" required></td>
                 <td class="border px-4 py-2"><button type="button" onclick="removeColorRow(this)" class="text-red-500">Remove</button></td>
             `;
-            colorTableBody.appendChild(colorTableRow);
-          }
+      colorTableBody.appendChild(colorTableRow);
+    }
 
-          // Function to remove the corresponding color row
-          function removeColorRow(button) {
-            const colorNameToRemove = button.closest('tr').cells[0].innerText;
-            button.closest('tr').remove();
+    // Function to remove the corresponding color row
+    function removeColorRow(button) {
+      const colorNameToRemove = button.closest('tr').cells[0].innerText;
+      button.closest('tr').remove();
 
-            // Remove corresponding data from the global object
-            productData.category = productData.category.filter(entry => Object.keys(entry)[0].toLowerCase() !== colorNameToRemove.toLowerCase());
-          }
+      // Remove corresponding data from the global object
+      productData.category = productData.category.filter(entry => Object.keys(entry)[0].toLowerCase() !== colorNameToRemove.toLowerCase());
+    }
 
-          // Function to push data into the global object
-          function ss() {
-            // Clear error message
-            document.getElementById('errorMessage').innerText = "";
+    // Function to push data into the global object
+    function ss() {
+      // Clear error message
 
-            // Get the color table data
-            const colorTableBody = document.getElementById('colorTable').querySelector('tbody');
-            const colorRows = Array.from(colorTableBody.getElementsByTagName('tr'));
+      document.getElementById('errorMessage').innerText = "";
 
-            // Loop through each color row and extract data
-            colorRows.forEach(row => {
-              const colorName = row.cells[0].innerText;
-              const sizeSmall = row.querySelector('input[name="sizeSmall"]').value;
-              const sizeMedium = row.querySelector('input[name="sizeMedium"]').value;
-              const sizeLarge = row.querySelector('input[name="sizeLarge"]').value;
+      // Get the color table data
+      const color = document.querySelector("color");
+      const colorTableBody = document.getElementById('colorTable').querySelector('tbody');
+      const colorRows = Array.from(colorTableBody.getElementsByTagName('tr'));
 
-              // Check if input fields are not empty
-              if (!sizeSmall || !sizeMedium || !sizeLarge) {
-                document.getElementById('errorMessage').innerText = "Please fill in all size fields.";
-                return;
-              }
+      // Loop through each color row and extract data
+      colorRows.forEach(row => {
+        const colorName = row.cells[0].innerText;
+        const color = row.cells[0].dataset.color;
 
-              // Check if the color already exists in the global object
-              const existingColorIndex = productData.category.findIndex(entry => Object.keys(entry)[0].toLowerCase() === colorName.toLowerCase());
-              if (existingColorIndex !== -1) {
-                // Update existing color data
-                productData.category[existingColorIndex][colorName.toLowerCase()] = {
-                  small: parseInt(sizeSmall, 10),
-                  medium: parseInt(sizeMedium, 10),
-                  large: parseInt(sizeLarge, 10)
-                };
-              } else {
-                // Add new color data
-                productData.category.push({
-                  [colorName.toLowerCase()]: {
-                    small: parseInt(sizeSmall, 10),
-                    medium: parseInt(sizeMedium, 10),
-                    large: parseInt(sizeLarge, 10)
-                  }
-                });
-              }
-            });
+        const sizeSmall = row.querySelector('input[name="sizeSmall"]').value;
+        const sizeMedium = row.querySelector('input[name="sizeMedium"]').value;
+        const sizeLarge = row.querySelector('input[name="sizeLarge"]').value;
 
-            console.log(productData);
-            // Get references to the button, the two SVG icons, and the body element
-          } const themeToggle = document.getElementById('theme-toggle');
-          const darkIcon = document.getElementById('theme-toggle-dark-icon');
-          const lightIcon = document.getElementById('theme-toggle-light-icon');
-          const body = document.body;
+        // Check if input fields are not empty
+        if (!sizeSmall || !sizeMedium || !sizeLarge) {
+          document.getElementById('errorMessage').innerText = "Please fill in all size fields.";
+          return;
+        }
 
-          // Add click event listener to the button
-          themeToggle.addEventListener('click', function () {
-            // Toggle the visibility of the SVG icons
-            darkIcon.classList.toggle('hidden');
-            lightIcon.classList.toggle('hidden');
-
-            // Toggle the dark class on the body
-            body.classList.toggle('dark');
-          });
-
-
-          const createProductButton = document.getElementById('createProductButton');
-          const closeProductButton = document.getElementById('closeProductButton');
-
-          const addProductModal = document.getElementById('add-product-modal');
-
-          // Add click event listener to the button
-          createProductButton.addEventListener('click', function () {
-            // Toggle the "hidden" class on the modal
-            addProductModal.classList.remove('hidden');
-          });
-          closeProductButton.addEventListener('click', function () {
-            // Toggle the "hidden" class on the modal
-            addProductModal.classList.add('hidden');
-          });
-
-          const imageContainer = document.getElementById('imageContainer');
-          const fileInput = document.getElementById('fileInput');
-
-          fileInput.addEventListener('change', handleFileUpload);
-
-          function handleFileUpload(event) {
-            const files = event.target.files;
-
-            for (const file of files) {
-              // Check if the file is an image
-              if (isImage(file)) {
-                // Display the image in the image container in the specified format
-                displayImage(file);
-              } else {
-                alert('Please upload a valid image file.');
-              }
+        // Check if the color already exists in the global object
+        const existingColorIndex = productData.category.findIndex(entry => Object.keys(entry)[0].toLowerCase() === colorName.toLowerCase());
+        if (existingColorIndex !== -1) {
+          // Update existing color data
+          productData.category[existingColorIndex][colorName.toLowerCase()] = {
+            color: color,
+            small: parseInt(sizeSmall, 10),
+            medium: parseInt(sizeMedium, 10),
+            large: parseInt(sizeLarge, 10)
+          };
+        } else {
+          // Add new color data
+          productData.category.push({
+            [colorName.toLowerCase()]: {
+              color: color,
+              small: parseInt(sizeSmall, 10),
+              medium: parseInt(sizeMedium, 10),
+              large: parseInt(sizeLarge, 10)
             }
-          }
+          });
+        }
+      });
 
-          function isImage(file) {
-            const acceptedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
-            return file && acceptedImageTypes.includes(file.type);
-          }
+      console.log(productData);
+      // Get references to the button, the two SVG icons, and the body element
+    } const themeToggle = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const body = document.body;
 
-          function displayImage(file) {
-            const imageUrl = URL.createObjectURL(file);
+    // Add click event listener to the button
+    themeToggle.addEventListener('click', function () {
+      // Toggle the visibility of the SVG icons
+      darkIcon.classList.toggle('hidden');
+      lightIcon.classList.toggle('hidden');
 
-            const imageElement = document.createElement('div');
-            imageElement.innerHTML = `
+      // Toggle the dark class on the body
+      body.classList.toggle('dark');
+    });
+
+
+    const createProductButton = document.getElementById('createProductButton');
+    const closeProductButton = document.getElementById('closeProductButton');
+
+    const addProductModal = document.getElementById('add-product-modal');
+
+    // Add click event listener to the button
+    createProductButton.addEventListener('click', function () {
+      // Toggle the "hidden" class on the modal
+      addProductModal.classList.remove('hidden');
+    });
+    closeProductButton.addEventListener('click', function () {
+      // Toggle the "hidden" class on the modal
+      addProductModal.classList.add('hidden');
+    });
+
+    const imageContainer = document.getElementById('imageContainer');
+    const fileInput = document.getElementById('fileInput');
+
+    fileInput.addEventListener('change', handleFileUpload);
+
+    function handleFileUpload(event) {
+      const files = event.target.files;
+
+      for (const file of files) {
+        // Check if the file is an image
+        if (isImage(file)) {
+          // Display the image in the image container in the specified format
+          displayImage(file);
+        } else {
+          alert('Please upload a valid image file.');
+        }
+      }
+    }
+
+    function isImage(file) {
+      const acceptedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+      return file && acceptedImageTypes.includes(file.type);
+    }
+
+    function displayImage(file) {
+      const imageUrl = URL.createObjectURL(file);
+
+      const imageElement = document.createElement('div');
+      imageElement.innerHTML = `
         <div class="">
           <img src="${imageUrl}" class="h-24 w-24 bg-transparent" alt="Uploaded Image">
           <button class="delete-button cursor-pointer">
@@ -1053,21 +1196,22 @@
         </div>
       `;
 
-            // Add an event listener to the delete button
-            const deleteButton = imageElement.querySelector('.delete-button');
-            deleteButton.addEventListener('click', () => {
-              // Remove the image element when the delete button is clicked
-              imageContainer.removeChild(imageElement);
-            });
+      // Add an event listener to the delete button
+      const deleteButton = imageElement.querySelector('.delete-button');
+      deleteButton.addEventListener('click', () => {
+        // Remove the image element when the delete button is clicked
+        imageContainer.removeChild(imageElement);
+      });
 
-            imageContainer.appendChild(imageElement);
-          }
+      imageContainer.appendChild(imageElement);
+    }
 
-        </script>
+  </script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></>
-        // <script src="../node_modules/axios/dist/axios.min.js"></script>
-        // <script src="../js/ProductPage.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js">
+    // <script src="../node_modules/axios/dist/axios.min.js"></script>
+
+  <script src="../js/ProductPage.js"></script>
 </body>
 
 </html>
