@@ -16,7 +16,7 @@
     </div>
 
     <!-- Sign Up Form -->
-    <form>
+    <form onsubmit="event.preventDefault(); signUp()">
       <!-- Full Name -->
       <div class="mb-4">
         <label for="fullName" class="text-sm text-gray-600">Full Name</label>
@@ -42,7 +42,7 @@
       </div>
 
       <!-- Sign Up Button -->
-      <button type="button" class="w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:shadow-outline-green" onclick="confirm()">
+      <button type="submit" class="w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:shadow-outline-green">
         Sign Up
       </button>
     </form>
@@ -52,19 +52,42 @@
       <p class="text-sm text-gray-600">Already have an account? <a href="/pages/Login.html" class="text-blue-500 hover:underline">Login</a></p>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    function confirm(){
-        var pswd1=document.getElementById("password").value;
-        var pswd2=document.getElementById("confirmPassword").value;
-        if(pswd1==pswd2){
-            return true;
-        }
-        else{
-            window.alert("Confirm Password is not same")
-            return false;
-        }
+    function signUp() {
+      var fullName = document.getElementById("fullName").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+
+      // Password confirmation check
+      if (password !== confirmPassword) {
+        window.alert("Confirm Password is not the same");
+        return;
+      }
+
+      // Make the Axios POST request
+      var data = {
+        name: fullName,
+        email: email,
+        password: password
+      };
+      console.log(data)
+
+      axios.post('http://localhost:5000/', data)
+        .then((res) => {
+          console.log(res.data);
+          alert("Signup Successful!!")
+            window.location.href = './Login.html';
+
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err.response.data.message)
+        });
     }
   </script>
 
-  </body>
+</body>
 </html>
