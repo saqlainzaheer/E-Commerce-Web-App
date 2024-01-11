@@ -92,7 +92,7 @@ document.querySelectorAll(".link").forEach((link) => {
 let Allproductdata=[
   {
         id: 1,
-        title: "sadad",
+        title: "dream shirt",
         price: "100.00",
         discountPercentage: "23.00",
         discountedPrice: "77.00",
@@ -117,7 +117,7 @@ let Allproductdata=[
     },
   {
         id: 1,
-        title: "sadad",
+        title: "tshirt ",
         price: "100.00",
         discountPercentage: "23.00",
         discountedPrice: "77.00",
@@ -142,7 +142,7 @@ let Allproductdata=[
     },
   {
         id: 1,
-        title: "sadad",
+        title: "lorem ",
         price: "100.00",
         discountPercentage: "23.00",
         discountedPrice: "77.00",
@@ -167,7 +167,7 @@ let Allproductdata=[
     },
   {
         id: 1,
-        title: "sadad",
+        title: "lorem",
         price: "100.00",
         discountPercentage: "23.00",
         discountedPrice: "77.00",
@@ -192,7 +192,7 @@ let Allproductdata=[
     },
   {
         id: 1,
-        title: "sadad",
+        title: "lorem",
         price: "100.00",
         discountPercentage: "23.00",
         discountedPrice: "77.00",

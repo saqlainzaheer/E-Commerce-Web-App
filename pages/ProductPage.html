@@ -818,13 +818,9 @@
                     <input type="file" class="hidden" id="fileInput" multiple>
                   </label>
                 </div> -->
-                <input
-                type="file"
-                name="images"
-                id="fileInput"
-                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                multiple
-              />
+                <input type="file" name="images" id="fileInput"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  multiple />
 
 
               </form>
@@ -1313,6 +1309,80 @@
       });
 
       imageContainer.appendChild(imageElement);
+    }
+
+    let Allproductdata = [];
+    async function callProductsApi() {
+      try {
+        const response = await axios.get('http://localhost:5000/productsn');
+        console.log('Products API Result:', response.data.products);
+        Allproductdata = response.data.products
+
+
+        ///////---------------------------------------------------------------------------------------------------------------
+
+        renderData(Allproductdata);
+
+
+      } catch (error) {
+        console.error('Error calling Products API:', error.message);
+      }
+    }
+    callProductsApi();
+
+
+
+    function renderData(data) {
+      console.log(data);
+      if (!data) return;
+      const container = document.querySelector("#shopitems");
+      data.forEach((item) => {
+        const cartdata = JSON.stringify(item);
+        const { id, image, title, price, discountedPrice, discountPercentage } =
+          item;
+        console.log(cartdata);
+        console.log(typeof discountedPrice);
+        console.log(image[0]);
+        const cardHtml = `
+       <div class="basis-6/12 sm:basis-4/12 lg:basis-3/12">
+        <div class="p-3 product-card">
+         <div class="image-container mb-2 aspect-square" style="border-radius:15px; background-image: url('http://localhost:5000/${image[0]}'); background-size: contain; background-position: center;">
+
+   <!-- Product Links -->
+   <ul class="product-links">
+   <li><a href="#"><i class="far fa-heart"></i></a></li>
+   <li><a href="#"> <i class="quickview fa-regular fa-eye" data-clickproductid=${id}></i></a></li>
+   <li>
+   <button ">
+   <a href="#"><i class="addtocartbtn cart__btn fa fa-shopping-cart" data-key='${cartdata}'></i></a>
+   </button>
+   </li>
+   </ul>
+    </div>
+      <h4 class="item_title text-black text-[0.75rem] sm:text-base mt-3 font-bold font-['Satoshi']">${title}</h4>
+      <div class="flex pt-1">${renderStars("4.0") + 4.0}</div>
+         <div class="flex justify-between items-center flex-wrap">
+   <div class="flex items-center flex-wrap">
+     <div class="pl-0 p-1  text-black text-base sm:text-xl font-bold font-['Satoshi']">${discountedPrice}</div>
+     <div class="p-1 text-md sm:text-xl text-black text-opacity-40 text-base font-bold font-['Satoshi'] line-through">
+       ${price === "null" ? "" : price}
+     </div>
+     ${discountPercentage === "null"
+            ? ""
+            : ` <div class="px-2.5 py-[2px]  text-xs text-red-500 font-medium font-['Satoshi'] bg-red-500 bg-opacity-10 rounded-3xl">
+             -${discountPercentage.split(".")[0]}%
+           </div>`
+          }
+   </div>
+  
+             </div>
+            </div>
+        </div>
+
+ `;
+
+        container.innerHTML += cardHtml;
+      });
     }
 
   </script>
