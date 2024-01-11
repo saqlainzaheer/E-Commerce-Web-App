@@ -49,12 +49,12 @@
     }
 </style>
 
-<body>
+<body class="dark">
     <!-- ----nav--- -->
 
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="#" class="flex items-center space-x-3 ">
+            <a href="http://localhost:5173/" class="flex items-center space-x-3 ">
                 <img src="/logomain.png" class="h-8" alt="Flowbite Logo bg-transparent" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SHOP.CO</span>
             </a>
@@ -338,7 +338,9 @@
                 &times;
             </button>
 
-            <div class="flex h-full flex-wrap items-center justify-center ">
+
+
+            <div id="renderclickedproduct" class="flex h-full flex-wrap items-center justify-center  ">
                 <div class="lg:basis-1/2 basis-full p-2">
 
                     <nav class="ml-[120px] mb-5">
@@ -422,7 +424,20 @@
                     </div>
 
 
-                    <!-- <div class="p-2 max-w-[420px] imgproductgrid ">
+                </div>
+
+                <div id="productviewdata" class="lg:basis-1/2 basis-full">
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- <div class="p-2 max-w-[420px] imgproductgrid ">
 
                         <div class="border-2  bg-no-repeat m-1  aspect-square  "
                             style="border-radius:15px;  background-image: url('/image1.png'); background-size: cover; background-position: center;">
@@ -440,172 +455,44 @@
 
 
                     </div> -->
-                </div>
+        <script type="module" src="/js/Category.js"></script>
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../node_modules/slick-carousel/slick/slick.min.js"></script>
 
-                <div class="lg:basis-1/2 basis-full">
+        <script>
+            function toggleFilter(filterId) {
+                const filter = document.getElementById(filterId);
+                filter.classList.toggle("hidden");
+                const angleIcon = filter.previousElementSibling.querySelector("i");
+                // Toggle the rotation class for the angle icon
+                angleIcon.classList.toggle("fa-rotate-90");
+            }
 
+            $(function () {
+                // Initialize Slider 1
+                $('.productimg').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '.imgproductgrid'
+                });
 
-                    <h3 class="text-black text-4xl font-bold font-['Integral CF'] mb-1">Dream Shirts </h3>
+                // Initialize Slider 2 and sync it with Slider 1
+                $('.imgproductgrid').slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    asNavFor: '.productimg',
+                    dots: false,
+                    centerMode: true,
+                    Infinity: false,
+                    focusOnSelect: true,
+                    arrows: true,
 
-                    <span class="flex gap-1 mb-3 items-center">
-                        <span
-                            class="inline-flex items-center justify-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="-ms-1 me-1.5 h-4 w-4">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-
-                            <p class="whitespace-nowrap text-sm">In Stock</p>
-                        </span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
-                            <path
-                                d="M8.8487 0.255127L11.4679 5.89504L17.6412 6.64322L13.0867 10.8771L14.2827 16.9794L8.8487 13.9561L3.41466 16.9794L4.61073 10.8771L0.0562391 6.64322L6.22949 5.89504L8.8487 0.255127Z"
-                                fill="#FFC633" />
-                        </svg> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17"
-                            fill="none">
-                            <path
-                                d="M8.8487 0.255127L11.4679 5.89504L17.6412 6.64322L13.0867 10.8771L14.2827 16.9794L8.8487 13.9561L3.41466 16.9794L4.61073 10.8771L0.0562391 6.64322L6.22949 5.89504L8.8487 0.255127Z"
-                                fill="#FFC633" />
-                        </svg> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17"
-                            fill="none">
-                            <path
-                                d="M8.8487 0.255127L11.4679 5.89504L17.6412 6.64322L13.0867 10.8771L14.2827 16.9794L8.8487 13.9561L3.41466 16.9794L4.61073 10.8771L0.0562391 6.64322L6.22949 5.89504L8.8487 0.255127Z"
-                                fill="#FFC633" />
-                        </svg> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17"
-                            fill="none">
-                            <path
-                                d="M8.8487 0.255127L11.4679 5.89504L17.6412 6.64322L13.0867 10.8771L14.2827 16.9794L8.8487 13.9561L3.41466 16.9794L4.61073 10.8771L0.0562391 6.64322L6.22949 5.89504L8.8487 0.255127Z"
-                                fill="#FFC633" />
-                        </svg></span>
-                    <div class="flex flex-row gap-2  items-center mb-5">
-
-
-                        <div class=" text-black text-3xl font-bold font-['Satoshi']">$120</div>
-                        <div class="text-black text-opacity-30 text-3xl font-bold font-['Satoshi'] line-through">
-                            $ 150
-                        </div>
-
-
-                        <div
-                            class="px-2.5 py-[2px]   bg-red-500 bg-opacity-10 rounded-3xl text-red-500 text-base font-medium font-['Satoshi']">
-                            -43%
-                        </div>
-                    </div>
-                    <p class=" text-black text-opacity-60 text-base font-normal font-['Satoshi'] mb-5 max-w-[500px]">
-                        This
-                        graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it
-                        offers superior comfort and style.
-                        graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it
-                        offers superior comfort and style.
-                    </p>
-
-                    <hr>
-                    <div>
-                        <p class="text-black text-opacity-60 text-base font-normal font-['Satoshi'] my-3">Select Colors
-                        </p>
-                        <div class="">
-                            <div class="flex flex-wrap mb-2 gap-3">
-                                <label for="c1"
-                                    class="colorcheck w-8 h-8 bg-white border border-gray-500 rounded-full items-center justify-center flex">
-                                    <input class="" type="checkbox" id="c1" name="color">
-                                    <svg class="colorsvg" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        viewBox="0 0 16 16" fill="bg-gray-600">
-                                        <path
-                                            d="M14.5306 5.03063L6.5306 13.0306C6.46092 13.1005 6.37813 13.156 6.28696 13.1939C6.1958 13.2317 6.09806 13.2512 5.99935 13.2512C5.90064 13.2512 5.8029 13.2317 5.71173 13.1939C5.62057 13.156 5.53778 13.1005 5.4681 13.0306L1.9681 9.53063C1.89833 9.46087 1.84299 9.37804 1.80524 9.28689C1.76748 9.19574 1.74805 9.09804 1.74805 8.99938C1.74805 8.90072 1.76748 8.80302 1.80524 8.71187C1.84299 8.62072 1.89833 8.53789 1.9681 8.46813C2.03786 8.39837 2.12069 8.34302 2.21184 8.30527C2.30299 8.26751 2.40069 8.24808 2.49935 8.24808C2.59801 8.24808 2.69571 8.26751 2.78686 8.30527C2.87801 8.34302 2.96083 8.39837 3.0306 8.46813L5.99997 11.4375L13.4693 3.96938C13.6102 3.82848 13.8013 3.74933 14.0006 3.74933C14.1999 3.74933 14.391 3.82848 14.5318 3.96938C14.6727 4.11028 14.7519 4.30137 14.7519 4.50063C14.7519 4.69989 14.6727 4.89098 14.5318 5.03188L14.5306 5.03063Z" />
-                                    </svg>
-                                </label>
-                                <label for="c2"
-                                    class="colorcheck w-8 h-8 bg-green-500 border border-gray-500 rounded-full items-center justify-center flex">
-                                    <input class="hidden" type="checkbox" id="c2" name="color">
-                                    <svg class="colorsvg" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        viewBox="0 0 16 16" fill="bg-gray-600" stroke-width="1" stroke="white">
-                                        <path
-                                            d="M14.5306 5.03063L6.5306 13.0306C6.46092 13.1005 6.37813 13.156 6.28696 13.1939C6.1958 13.2317 6.09806 13.2512 5.99935 13.2512C5.90064 13.2512 5.8029 13.2317 5.71173 13.1939C5.62057 13.156 5.53778 13.1005 5.4681 13.0306L1.9681 9.53063C1.89833 9.46087 1.84299 9.37804 1.80524 9.28689C1.76748 9.19574 1.74805 9.09804 1.74805 8.99938C1.74805 8.90072 1.76748 8.80302 1.80524 8.71187C1.84299 8.62072 1.89833 8.53789 1.9681 8.46813C2.03786 8.39837 2.12069 8.34302 2.21184 8.30527C2.30299 8.26751 2.40069 8.24808 2.49935 8.24808C2.59801 8.24808 2.69571 8.26751 2.78686 8.30527C2.87801 8.34302 2.96083 8.39837 3.0306 8.46813L5.99997 11.4375L13.4693 3.96938C13.6102 3.82848 13.8013 3.74933 14.0006 3.74933C14.1999 3.74933 14.391 3.82848 14.5318 3.96938C14.6727 4.11028 14.7519 4.30137 14.7519 4.50063C14.7519 4.69989 14.6727 4.89098 14.5318 5.03188L14.5306 5.03063Z" />
-                                    </svg>
-                                </label>
-
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <hr>
-                    <div class="">
-                        <p class="text-black text-opacity-60 text-base font-normal font-['Satoshi'] my-3">Choose Size
-                        </p>
-
-                        <div class="mb-3">
-                            <label for="l"
-                                class="selectCheck py-[6px] px-[12px] hover:bg-black hover:text-white font-['Satoshi'] text-black text-opacity-60 rounded-3xl  bg-zinc-100">
-                                <input class="hidden" type="checkbox" id="l" name="size">
-                                <span class="text-base font-normal font-['Satoshi'] ">Small</span>
-                            </label>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="flex flex-wrap my-3 gap-2">
-
-                        <div
-                            class="w-44 h-12 px-5 py-4 bg-zinc-100 rounded-3xl justify-between items-center inline-flex  ">
-                            <button class="w-6 h-6 relative">+</button>
-                            <span class="text-black text-base font-medium font-['Satoshi']">1</span>
-                            <button class="w-6 h-6 relative">-</button>
-
-                        </div>
-                        <div class="flex justify-center items-center ">
-                            <button class="text-white rounded-3xl bg-black h-12 px-20">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <script type="module" src="/js/Category.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/slick-carousel/slick/slick.min.js"></script>
-
-    <script>
-        function toggleFilter(filterId) {
-            const filter = document.getElementById(filterId);
-            filter.classList.toggle("hidden");
-            const angleIcon = filter.previousElementSibling.querySelector("i");
-            // Toggle the rotation class for the angle icon
-            angleIcon.classList.toggle("fa-rotate-90");
-        }
-
-        $(function () {
-            // Initialize Slider 1
-            $('.productimg').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false,
-                fade: true,
-                asNavFor: '.imgproductgrid'
+                });
             });
 
-            // Initialize Slider 2 and sync it with Slider 1
-            $('.imgproductgrid').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                asNavFor: '.productimg',
-                dots: false,
-                centerMode: true,
-                Infinity: false,
-                focusOnSelect: true,
-                arrows: true,
-
-            });
-        });
-
-    </script>
+        </script>
 
 </body>
 
