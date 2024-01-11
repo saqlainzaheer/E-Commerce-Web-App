@@ -114,6 +114,9 @@
 input[type="radio"] {
   display: none;
 }
+input[type="checkbox"] {
+  display: none;
+}
 
 /* Style the labels to look like buttons */
 /* label {

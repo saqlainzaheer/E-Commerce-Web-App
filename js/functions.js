@@ -1,5 +1,7 @@
-function renderStars(rating) {
-  const stararray = rating.split(".");
+function renderStars( rating="4.0") {
+  
+  
+  const stararray = rating?.split(".");
   console.log(stararray);
   const fullStars = stararray[0];
   const hasHalfStar = stararray[1] === "5" ? true : false;
