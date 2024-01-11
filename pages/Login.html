@@ -103,7 +103,12 @@
           .then((res) => {
             console.log(res.data);
             alert(res.data.message)
-            
+            if(!isAdmin){
+              localStorage.setItem("userToken", res.data.token);
+            }
+            else{
+              localStorage.setItem("adminToken", res.data.token);
+            }
             window.location.href = isAdmin ? '/pages/AdminDashboard.html' : '/pages/index.html';
           })
           .catch((err) => {
